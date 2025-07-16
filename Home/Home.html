@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formula Analytics</title>
+    <link rel="stylesheet" href = "CSS/home.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poetsen+One&family=Racing+Sans+One&family=Rubik+Glitch&family=Satisfy&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+    <div class="nav-container">
+        <div class="logo">FORMULA ANALYTICS</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li class="dropdown">
+                <a href="#races">Championship</a>
+                <ul class="dropdown-menu">
+                    <li><a href="2015/WDC2015.html">2015</a></li>
+                    <li><a href="Portfolio.html">2016</a></li>
+                    <li><a href="Projects/ui-design.html">2017</a></li>
+                    <li><a href="Projects/mobile-apps.html">2018</a></li>
+                    <li><a href="Projects/mobile-apps.html">2019</a></li>
+                    <li><a href="Projects/mobile-apps.html">2020</a></li>
+                    <li><a href="Projects/mobile-apps.html">2021</a></li>
+                    <li><a href="Projects/mobile-apps.html">2022</a></li>
+                    <li><a href="Projects/mobile-apps.html">2023</a></li>
+                    <li><a href="Projects/mobile-apps.html">2024</a></li>
+                </ul>
+            </li>
+            <li><a href="#drivers">Drivers</a></li>
+            <li><a href="#teams">Teams</a></li>
+            <li><a href="#news">News</a></li>
+            <li><a href="#standings">2025 Championship</a></li>
+        </ul>
+    </div>
+</nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="f1-cars-bg"></div>
+        <div class="hero-bg"></div>
+        <div class="racing-lines"></div>
+        
+        <div class="hero-content">
+            <h1 class="hero-title">FORMULA ANALYTICS</h1>
+            <a href="#races" class="cta-button">EXPLORE RACES</a>
+        </div>
+
+        <div class="speed-indicator">
+            <div class="speedometer"></div>
+            <div class="speed-text">320</div>
+            <div class="speed-label">KM/H</div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stats-container">
+            <div class="stat-card">
+                <div class="stat-number">24</div>
+                <div class="stat-label">Races per Season</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">10</div>
+                <div class="stat-label">Teams</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">20</div>
+                <div class="stat-label">Drivers</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">320+</div>
+                <div class="stat-label">Max Speed (km/h)</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- News Section -->
+    <section class="news" id="news">
+        <div class="news-container">
+            <h2 class="section-title">Latest F1 News</h2>
+            <div class="news-grid">
+                <article class="news-card">
+                    <div class="news-image">🏁</div>
+                    <div class="news-content">
+                        <h3 class="news-title">Monaco Grand Prix Preview</h3>
+                        <p class="news-excerpt">The most prestigious race on the F1 calendar returns to Monte Carlo with all the glamour and tight racing action fans expect.</p>
+                    </div>
+                </article>
+                <article class="news-card">
+                    <div class="news-image">🏎️</div>
+                    <div class="news-content">
+                        <h3 class="news-title">Technical Regulations Update</h3>
+                        <p class="news-excerpt">New aerodynamic packages and engine regulations are set to shake up the competition in the upcoming season.</p>
+                    </div>
+                </article>
+                <article class="news-card">
+                    <div class="news-image">🏆</div>
+                    <div class="news-content">
+                        <h3 class="news-title">Championship Battle Intensifies</h3>
+                        <p class="news-excerpt">With only points separating the top drivers, every race weekend becomes crucial in the fight for the world championship.</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 F1 Speed Zone. All rights reserved. | Formula 1 Racing Championship</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.style.background = 'rgba(0, 0, 0, 0.95)';
+            } else {
+                nav.style.background = 'rgba(0, 0, 0, 0.9)';
+            }
+        });
+
+        // Speed counter animation
+        function animateSpeed() {
+            const speedElement = document.querySelector('.speed-text');
+            let currentSpeed = 0;
+            const targetSpeed = 320;
+            const increment = targetSpeed / 100;
+            
+            const timer = setInterval(() => {
+                currentSpeed += increment;
+                if (currentSpeed >= targetSpeed) {
+                    currentSpeed = targetSpeed;
+                    clearInterval(timer);
+                }
+                speedElement.textContent = Math.floor(currentSpeed);
+            }, 20);
+        }
+
+        // Trigger speed animation when page loads
+        window.addEventListener('load', () => {
+            setTimeout(animateSpeed, 1000);
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'slideUp 0.8s ease-out forwards';
+                }
+            });
+        }, observerOptions);
+
+        // Observe stat cards and news cards
+        document.querySelectorAll('.stat-card, .news-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
