@@ -3,11 +3,6 @@
             padding: 0;
             box-sizing: border-box;
         }
-
-        @font-face {
-    font-family: 'TitleFont';
-    src: url('SpeedDemon.ttf') format('truetype');
-        }
         .racing-sans-one-regular {
   font-family: "Racing Sans One", sans-serif;
   font-weight: 400;
