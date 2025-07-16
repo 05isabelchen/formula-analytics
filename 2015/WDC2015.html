@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formula 1 2015 Season - Complete Analysis</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: rgba(0,0,0,0.9);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20"><defs><pattern id="checkered" x="0" y="0" width="10" height="10" patternUnits="userSpaceOnUse"><rect x="0" y="0" width="5" height="5" fill="%23fff" opacity="0.1"/><rect x="5" y="5" width="5" height="5" fill="%23fff" opacity="0.1"/></pattern></defs><rect width="100" height="20" fill="url(%23checkered)"/></svg>') repeat;
+            animation: slide 10s linear infinite;
+        }
+
+        @keyframes slide {
+            0% { transform: translateX(-100px); }
+            100% { transform: translateX(0); }
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            position: relative;
+            z-index: 1;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        .nav {
+            background: rgba(255,255,255,0.95);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .nav li {
+            margin: 0 1rem;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .nav a:hover {
+            background: #f1c40f;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .content {
+            background: white;
+            margin: 2rem 0;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+
+        .section {
+            padding: 3rem 2rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .section:last-child {
+            border-bottom: none;
+        }
+
+        h2 {
+            color: #e74c3c;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(45deg, #f1c40f, #e74c3c);
+            border-radius: 2px;
+        }
+
+        h3 {
+            color: #2c3e50;
+            font-size: 1.8rem;
+            margin: 2rem 0 1rem 0;
+            border-left: 4px solid #f1c40f;
+            padding-left: 1rem;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #f39c12, #e74c3c);
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            transform: translateY(0);
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .race-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .race-card {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .race-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+
+        .race-header {
+            background: linear-gradient(45deg, #e74c3c, #c0392b);
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .race-content {
+            padding: 1.5rem;
+        }
+
+        .driver-standings {
+            margin: 2rem 0;
+        }
+
+        .driver-row {
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            margin: 0.5rem 0;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #f1c40f;
+            transition: all 0.3s ease;
+        }
+
+        .driver-row:hover {
+            background: #e9ecef;
+            transform: translateX(5px);
+        }
+
+        .position {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #e74c3c;
+            width: 50px;
+            text-align: center;
+        }
+
+        .driver-name {
+            flex: 1;
+            font-weight: bold;
+            margin-left: 1rem;
+        }
+
+        .points {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #27ae60;
+        }
+
+        .championship-winner {
+            background: linear-gradient(45deg, #f1c40f, #f39c12);
+            color: white;
+            border-left-color: #fff;
+        }
+
+        .key-events {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .event {
+            margin: 1rem 0;
+            padding: 1rem;
+            background: white;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .event-date {
+            font-weight: bold;
+            color: #e74c3c;
+            margin-bottom: 0.5rem;
+        }
+
+        .visualization {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 2rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .chart-placeholder {
+            height: 300px;
+            background: linear-gradient(135deg, #74b9ff, #0984e3);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin: 1rem 0;
+        }
+
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #e74c3c;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .back-to-top:hover {
+            transform: scale(1.1);
+            background: #c0392b;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .section {
+                padding: 2rem 1rem;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>🏎️ Formula 1 2015 Season</h1>
+            <p class="subtitle">The Year Mercedes Dominated and Hamilton Claimed His Third Crown</p>
+        </div>
+    </header>
+
+    <nav class="nav">
+        <div class="container">
+            <ul>
+                <li><a href="#overview">Overview</a></li>
+                <li><a href="#championship">Championship</a></li>
+                <li><a href="#races">Race Calendar</a></li>
+                <li><a href="#analysis">Data Analysis</a></li>
+                <li><a href="#highlights">Season Highlights</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="content">
+            <section id="overview" class="section">
+                <h2>2015 Season Overview</h2>
+                
+                <div class="highlight-box">
+                    <h3>🏆 Lewis Hamilton's Dominant Championship Victory</h3>
+                    <p>The 2015 Formula 1 season was defined by Mercedes' continued dominance and Lewis Hamilton's commanding performance, securing his third World Championship with three races to spare.</p>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <span class="stat-number">19</span>
+                        <span>Total Races</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">16</span>
+                        <span>Mercedes Wins</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">10</span>
+                        <span>Hamilton Wins</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">3</span>
+                        <span>Vettel Wins</span>
+                    </div>
+                </div>
+
+                <h3>Key Season Facts</h3>
+                <ul style="padding-left: 2rem; margin: 1rem 0;">
+                    <li><strong>Champion:</strong> Lewis Hamilton (Mercedes) - 381 points</li>
+                    <li><strong>Constructors' Champion:</strong> Mercedes - 703 points</li>
+                    <li><strong>Rookie of the Year:</strong> Max Verstappen (youngest F1 driver at 17)</li>
+                    <li><strong>Most Dominant Team:</strong> Mercedes won 16 out of 19 races</li>
+                    <li><strong>New Circuits:</strong> Return of Mexico after 23 years</li>
+                </ul>
+            </section>
+
+            <section id="championship" class="section">
+                <h2>Championship Standings</h2>
+                
+                <h3>🏁 Final Drivers' Championship</h3>
+                <div class="driver-standings">
+                    <div class="driver-row championship-winner">
+                        <span class="position">1</span>
+                        <span class="driver-name">Lewis Hamilton</span>
+                        <span class="points">381 pts</span>
+                    </div>
+                    <div class="driver-row">
+                        <span class="position">2</span>
+                        <span class="driver-name">Nico Rosberg</span>
+                        <span class="points">322 pts</span>
+                    </div>
+                    <div class="driver-row">
+                        <span class="position">3</span>
+                        <span class="driver-name">Sebastian Vettel</span>
+                        <span class="points">278 pts</span>
+                    </div>
+                    <div class="driver-row">
+                        <span class="position">4</span>
+                        <span class="driver-name">Kimi Räikkönen</span>
+                        <span class="points">150 pts</span>
+                    </div>
+                    <div class="driver-row">
+                        <span class="position">5</span>
+                        <span class="driver-name">Valtteri Bottas</span>
+                        <span class="points">136 pts</span>
+                    </div>
+                </div>
+
+                <h3>🏆 Constructors' Championship</h3>
+                <div class="driver-standings">
+                    <div class="driver-row championship-winner">
+                        <span class="position">1</span>
+                        <span class="driver-name">Mercedes</span>
+                        <span class="points">703 pts</span>
+                    </div>
+                    <div class="driver-row">
+                        <span class="position">2</span>
+                        <span class="driver-name">Ferrari</span>
+                        <span class="points">428 pts</span>
+                    </div>
+                    <div class="driver-row">
+                        <span class="position">3</span>
+                        <span class="driver-name">Williams</span>
+                        <span class="points">257 pts</span>
+                    </div>
+                    <div class="driver-row">
+                        <span class="position">4</span>
+                        <span class="driver-name">Red Bull</span>
+                        <span class="points">187 pts</span>
+                    </div>
+                    <div class="driver-row">
+                        <span class="position">5</span>
+                        <span class="driver-name">Force India</span>
+                        <span class="points">136 pts</span>
+                    </div>
+                </div>
+            </section>
+
+            <section id="races" class="section">
+                <h2>2015 Race Calendar</h2>
+                
+                <div class="race-grid">
+                    <div class="race-card">
+                        <div class="race-header">
+                            <h4>Round 1: Australian GP</h4>
+                            <p>March 15, Melbourne</p>
+                        </div>
+                        <div class="race-content">
+                            <p><strong>Winner:</strong> Lewis Hamilton</p>
+                            <p><strong>Pole:</strong> Lewis Hamilton</p>
+                            <p><strong>Fastest Lap:</strong> Hamilton</p>
+                            <p>Mercedes dominated the season opener with Hamilton leading from start to finish.</p>
+                        </div>
+                    </div>
+
+                    <div class="race-card">
+                        <div class="race-header">
+                            <h4>Round 2: Malaysian GP</h4>
+                            <p>March 29, Sepang</p>
+                        </div>
+                        <div class="race-content">
+                            <p><strong>Winner:</strong> Sebastian Vettel</p>
+                            <p><strong>Pole:</strong> Lewis Hamilton</p>
+                            <p><strong>Fastest Lap:</strong> Vettel</p>
+                            <p>Ferrari's strategic masterclass gave Vettel his first win in red.</p>
+                        </div>
+                    </div>
+
+                    <div class="race-card">
+                        <div class="race-header">
+                            <h4>Round 6: Monaco GP</h4>
+                            <p>May 24, Monte Carlo</p>
+                        </div>
+                        <div class="race-content">
+                            <p><strong>Winner:</strong> Nico Rosberg</p>
+                            <p><strong>Pole:</strong> Lewis Hamilton</p>
+                            <p><strong>Fastest Lap:</strong> Hamilton</p>
+                            <p>Strategic mishap cost Hamilton victory as Rosberg won his home race.</p>
+                        </div>
+                    </div>
+
+                    <div class="race-card">
+                        <div class="race-header">
+                            <h4>Round 10: British GP</h4>
+                            <p>July 5, Silverstone</p>
+                        </div>
+                        <div class="race-content">
+                            <p><strong>Winner:</strong> Lewis Hamilton</p>
+                            <p><strong>Pole:</strong> Lewis Hamilton</p>
+                            <p><strong>Fastest Lap:</strong> Hamilton</p>
+                            <p>Hamilton's dominant home victory in front of passionate British fans.</p>
+                        </div>
+                    </div>
+
+                    <div class="race-card">
+                        <div class="race-header">
+                            <h4>Round 17: Mexican GP</h4>
+                            <p>November 1, Mexico City</p>
+                        </div>
+                        <div class="race-content">
+                            <p><strong>Winner:</strong> Nico Rosberg</p>
+                            <p><strong>Pole:</strong> Nico Rosberg</p>
+                            <p><strong>Fastest Lap:</strong> Valtteri Bottas</p>
+                            <p>F1 returned to Mexico after 23 years with Rosberg taking victory.</p>
+                        </div>
+                    </div>
+
+                    <div class="race-card">
+                        <div class="race-header">
+                            <h4>Round 19: Abu Dhabi GP</h4>
+                            <p>November 29, Yas Marina</p>
+                        </div>
+                        <div class="race-content">
+                            <p><strong>Winner:</strong> Nico Rosberg</p>
+                            <p><strong>Pole:</strong> Lewis Hamilton</p>
+                            <p><strong>Fastest Lap:</strong> Hamilton</p>
+                            <p>Season finale with Rosberg winning under the lights.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="analysis" class="section">
+                <h2>Data Analysis & Insights</h2>
+                
+                <h3>📊 Position Changes Analysis</h3>
+                <div class="visualization">
+                    <p><strong>Most Successful Overtaker:</strong> Max Verstappen averaged +2.21 positions gained per race</p>
+                    <div class="chart-placeholder">
+                        Position Changes Heatmap
+                        <br><small>Green = Positions Gained | Red = Positions Lost</small>
+                    </div>
+                    <p>Based on the analysis, drivers like Max Verstappen, Roberto Merhi, and Sebastian Vettel showed the most consistent ability to gain positions during races.</p>
+                </div>
+
+                <h3>🏎️ Hamilton's Lap Time Performance</h3>
+                <div class="visualization">
+                    <div class="chart-placeholder">
+                        Hamilton's Lap Times Distribution Across Circuits
+                        <br><small>Monaco showed highest variation due to track characteristics</small>
+                    </div>
+                    <p>Hamilton's consistency was remarkable, with minimal lap time variation across different circuit types, showcasing his adaptability.</p>
+                </div>
+
+                <h3>📈 Race-by-Race Position Volatility</h3>
+                <div class="visualization">
+                    <div class="chart-placeholder">
+                        Position Changes Per Lap Analysis
+                        <br><small>Malaysian GP had highest volatility with 50 position changes in lap 5</small>
+                    </div>
+                    <p>The Malaysian Grand Prix showed the most dramatic position changes, while Singapore remained the most static race with minimal overtaking.</p>
+                </div>
+            </section>
+
+            <section id="highlights" class="section">
+                <h2>Season Highlights & Key Events</h2>
+                
+                <div class="key-events">
+                    <div class="event">
+                        <div class="event-date">March 15 - Australia</div>
+                        <p><strong>Season Opener:</strong> Hamilton dominates to signal Mercedes' continued strength, winning by 1.4 seconds from Rosberg.</p>
+                    </div>
+
+                    <div class="event">
+                        <div class="event-date">March 29 - Malaysia</div>
+                        <p><strong>Ferrari Strikes Back:</strong> Vettel's strategic victory ends Mercedes' winning streak and shows Ferrari's resurgence.</p>
+                    </div>
+
+                    <div class="event">
+                        <div class="event-date">May 17 - Spain</div>
+                        <p><strong>Max Verstappen Debut:</strong> 17-year-old Verstappen becomes youngest F1 driver, finishing 11th on debut for Toro Rosso.</p>
+                    </div>
+
+                    <div class="event">
+                        <div class="event-date">May 24 - Monaco</div>
+                        <p><strong>Strategy Controversy:</strong> Mercedes' pit stop error costs Hamilton victory as Rosberg wins at home.</p>
+                    </div>
+
+                    <div class="event">
+                        <div class="event-date">June 21 - Austria</div>
+                        <p><strong>Rosberg's Recovery:</strong> After early season struggles, Rosberg wins his first race of the year.</p>
+                    </div>
+
+                    <div class="event">
+                        <div class="event-date">July 5 - Britain</div>
+                        <p><strong>Hamilton's Home Glory:</strong> Masterful performance at Silverstone, leading every lap for emotional home victory.</p>
+                    </div>
+
+                    <div class="event">
+                        <div class="event-date">October 25 - USA</div>
+                        <p><strong>Championship Clinched:</strong> Hamilton secures his third title with three races remaining after finishing 2nd in Austin.</p>
+                    </div>
+
+                    <div class="event">
+                        <div class="event-date">November 1 - Mexico</div>
+                        <p><strong>Historic Return:</strong> F1 returns to Mexico City after 23 years, with 400,000 fans attending the weekend.</p>
+                    </div>
+                </div>
+
+                <h3>🎯 Technical Innovations</h3>
+                <ul style="padding-left: 2rem; margin: 2rem 0;">
+                    <li><strong>Power Unit Evolution:</strong> Second year of hybrid V6 turbo engines showed improved reliability</li>
+                    <li><strong>Aerodynamic Development:</strong> Teams focused on nose designs and rear wing efficiency</li>
+                    <li><strong>ERS Optimization:</strong> Better energy recovery systems deployment strategies</li>
+                    <li><strong>Tire Management:</strong> Pirelli's compounds required sophisticated thermal management</li>
+                </ul>
+
+                <h3>🌟 Breakout Performances</h3>
+                <ul style="padding-left: 2rem; margin: 2rem 0;">
+                    <li><strong>Max Verstappen:</strong> Youngest F1 driver showed immediate pace and maturity</li>
+                    <li><strong>Carlos Sainz Jr.:</strong> Impressive rookie season with Toro Rosso</li>
+                    <li><strong>Sebastian Vettel:</strong> Successful transition to Ferrari with 3 wins</li>
+                    <li><strong>Valtteri Bottas:</strong> Consistent points scorer for Williams</li>
+                </ul>
+            </section>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 F1 2015 Season Analysis. Data visualization based on comprehensive race analytics.</p>
+            <p>🏎️ Celebrating the pinnacle of motorsport through data-driven insights</p>
+        </div>
+    </footer>
+
+    <a href="#" class="back-to-top" onclick="scrollToTop(); return false;">↑</a>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Back to top functionality
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Show/hide back to top button
+        window.addEventListener('scroll', function() {
+            const backToTop = document.querySelector('.back-to-top');
+            if (window.pageYOffset > 300) {
+                backToTop.style.display = 'flex';
+            } else {
+                backToTop.style.display = 'none';
+            }
+        });
+
+        // Animate stat cards on scroll
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.stat-card, .race-card, .driver-row');
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        }
+
+        // Initialize animations
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+    </script>
+</body>
+</html>
