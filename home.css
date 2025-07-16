@@ -15,7 +15,6 @@
     min-height: 100vh;
     
     /* Background image setup */
-    background-image: url('HomeBackground.png');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
