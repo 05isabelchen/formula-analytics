@@ -1,0 +1,1389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formula Analytics</title>
+    <link rel="stylesheet" href = "Home/CSS/home.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poetsen+One&family=Racing+Sans+One&family=Rubik+Glitch&family=Satisfy&family=Squada+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poetsen+One&family=Racing+Sans+One&family=Rubik+Glitch&family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Satisfy&family=Squada+One&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="Home/Images/F1Icon.png">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+    <div class="nav-container">
+        <div class="logo">FORMULA ANALYTICS</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li class="dropdown">
+                <a href="#races">Championship</a>
+                <ul class="dropdown-menu">
+                    <li><a href="WDC2015.html">2015</a></li>
+                    <li><a href="WDC2016.html">2016</a></li>
+                    <li><a href="Projects/mobile-apps.html">2018</a></li>
+                    <li><a href="Projects/mobile-apps.html">2021</a></li>
+                    <li><a href="Projects/mobile-apps.html">2023</a></li>
+                    <li><a href="Projects/mobile-apps.html">2024</a></li>
+                </ul>
+            </li>
+            <li><a href="#drivers">Drivers</a></li>
+            <li><a href="#teams">Teams</a></li>
+            <li><a href="#news">Circuits</a></li>
+            <li><a href="#standings">2025 Championship</a></li>
+        </ul>
+    </div>
+</nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="f1-cars-bg"></div>
+        <div class="hero-bg"></div>
+        <div class="racing-lines"></div>
+        
+        <div class="hero-content">
+            <h1 class="hero-title">FORMULA ANALYTICS</h1>
+            <a href="#races" class="cta-button">EXPLORE RACES</a>
+        </div>
+
+        <div class="speed-indicator">
+            <div class="speedometer"></div>
+            <div class="speed-text">320</div>
+            <div class="speed-label">KM/H</div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="about-container">
+            <h2 class="card-title">About the Analytics</h2>
+            <div class="info-card">
+                <p class = "card-description">This is where the description for the website will go</p>
+            </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Championship Section -->
+<section class="news" id="news">
+    <div class="news-container">
+        <h2 class="section-title">Explore Championships</h2>
+        <div class="news-grid">
+            <!-- 2025 Championship Card -->
+            <a href="2025-championship.html" class="news-card">
+                <article>
+                    <div class="news-image">
+                        <img src="Home/Images/2025Championship.jpg" alt="2025 Championship">
+                    </div>
+                    <div class="news-content">
+                        <h3 class="news-title">2025 Championship</h3>
+                        <p class="news-excerpt">Experience the latest season with cutting-edge technology, new regulations, and intense battles for the championship title.</p>
+                    </div>
+                </article>
+            </a>
+
+            <!-- 2021 Championship Card -->
+            <a href="2021-championship.html" class="news-card">
+                <article>
+                    <div class="news-image">
+                        <img src="Home/Images/2021Championship.jpg" alt="2021 Championship">
+                    </div>
+                    <div class="news-content">
+                        <h3 class="news-title">2021 Championship</h3>
+                        <p class="news-excerpt">Relive the epic battle between Hamilton and Verstappen in one of the most dramatic championship fights in F1 history.</p>
+                    </div>
+                </article>
+            </a>
+
+            <!-- 2016 Championship Card -->
+            <a href="WDC2016.html" class="news-card">
+                <article>
+                    <div class="news-image">
+                        <img src="Home/Images/2016Championship.jpg" alt="2016 Championship">
+                    </div>
+                    <div class="news-content">
+                        <h3 class="news-title">2016 Championship</h3>
+                        <p class="news-excerpt">Dive into the thrilling 2016 season featuring Hamilton vs Rosberg rivalry and unforgettable moments throughout the year.</p>
+                    </div>
+                </article>
+            </a>
+        </div>
+    </div>
+</section>
+
+<section class="drivers-section">
+        <h2 class="drivers-section-title">2025 F1 DRIVERS</h2>
+        <div class="drivers-container">
+            <div class="scroll-indicator scroll-left" onclick="scrollDrivers('left')"></div>
+            <div class="drivers-scroll" id="driversScroll">
+                
+                
+                <!-- Max Verstappen -->
+                <div class="driver-card">
+                    <div class="driver-header">
+                        <div class="team-color-bar red-bull"></div>
+                        <div class="driver-number">1</div>
+                        <div class="driver-image">
+                            <img src="Home/Images/maxverstappen.jpg" alt="Max Verstappen">
+                        </div>
+                    </div>
+                    <div class="driver-info">
+                        <div class="driver-name">Max Verstappen</div>
+                    </div>
+                    <div class="driver-overlay">
+                        <div class="overlay-name">Max Verstappen</div>
+                        <div class="overlay-team">Red Bull Racing</div>
+                        <div class="overlay-stats">
+                            <div class="overlay-stat">
+                                <div class="overlay-stat-value">4</div>
+                                <div class="overlay-stat-label">Championships</div>
+                            </div>
+                            <div class="overlay-stat">
+                                <div class="overlay-stat-value">65</div>
+                                <div class="overlay-stat-label">Wins</div>
+                            </div>
+                            <div class="overlay-stat">
+                                <div class="overlay-stat-value">117</div>
+                                <div class="overlay-stat-label">Podiums</div>
+                            </div>
+                            <div class="overlay-stat">
+                                <div class="overlay-stat-value">26</div>
+                                <div class="overlay-stat-label">Age</div>
+                            </div>
+                        </div>
+                        <div class="overlay-country">Netherlands</div>
+                    </div>
+                </div>
+
+                <!-- Lando Norris -->
+                <div class="driver-card">
+                    <div class="driver-header">
+                        <div class="team-color-bar mclaren"></div>
+                        <div class="driver-number">4</div>
+                        <div class="driver-image">
+                            <img src="Home/Images/landonorris.jpg" alt="Lando Norris">
+                        </div>
+                    </div>
+                    <div class="driver-info">
+                        <div class="driver-name">Lando Norris</div>
+                    </div>
+                    <div class="driver-overlay">
+                        <div class="overlay-name">Lando Norris</div>
+                        <div class="overlay-team">McLaren</div>
+                        <div class="overlay-stats">
+                            <div class="overlay-stat">
+                                <div class="overlay-stat-value">0</div>
+                                <div class="overlay-stat-label">Championships</div>
+                            </div>
+                            <div class="overlay-stat">
+                                <div class="overlay-stat-value">8</div>
+                                <div class="overlay-stat-label">Wins</div>
+                            </div>
+                            <div class="overlay-stat">
+                                <div class="overlay-stat-value">36</div>
+                                <div class="overlay-stat-label">Podiums</div>
+                            </div>
+                            <div class="overlay-stat">
+                                <div class="overlay-stat-value">25</div>
+                                <div class="overlay-stat-label">Age</div>
+                            </div>
+                        </div>
+                        <div class="overlay-country">United Kingdom</div>
+                    </div>
+                </div>
+
+                <!-- Oscar Piastri -->
+                <div class="driver-card">
+                    <div class="driver-header">
+                        <div class="team-color-bar mclaren"></div>
+                        <div class="driver-number">81</div>
+                        <div class="driver-image">
+                            <img src="Home/Images/oscarpiastri.jpg" alt="Oscar Piastri">
+                        </div>
+                        
+                    </div>
+                    <div class="driver-info">
+                        <div class="driver-name">Oscar Piastri</div>
+                    </div>
+                    <div class="driver-overlay">
+                        <div class="overlay-name">Oscar Piastri</div>
+                        <div class="overlay-team">McLaren</div>
+                        <div class="overlay-stats">
+                            <div class="overlay-stat">
+                                <div class="overlay-stat-value">0</div>
+                                <div class="overlay-stat-label">Championships</div>
+                            </div>
+                            <div class="overlay-stat">
+                                <div class="overlay-stat-value">7</div>
+                                <div class="overlay-stat-label">Wins</div>
+                            </div>
+                            <div class="overlay-stat">
+                                <div class="overlay-stat-value">20</div>
+                                <div class="overlay-stat-label">Podiums</div>
+                            </div>
+                            <div class="overlay-stat">
+                                <div class="overlay-stat-value">23</div>
+                                <div class="overlay-stat-label">Age</div>
+                            </div>
+                        </div>
+                        <div class="overlay-country">Australia</div>
+                    </div>
+                </div>
+
+
+                <!-- Lewis Hamilton -->
+                <div class="driver-card">
+                    <div class="driver-header">
+                        <div class="team-color-bar ferrari"></div>
+                        <div class="driver-number">44</div>
+                        <div class="driver-image">
+                            <img src="Home/Images/lewishamilton.jpg" alt="Lewis Hamilton">
+                        </div>
+                    </div>
+                    <div class="driver-info">
+                        <div class="driver-name">Lewis Hamilton</div>
+                    </div>
+                    <div class="driver-overlay">
+                        <div class="overlay-name">Lewis Hamilton</div>
+                        <div class="overlay-team">Ferrari</div>
+                        <div class="overlay-stats">
+                            <div class="overlay-stat">
+                                <div class="overlay-stat-value">7</div>
+                                <div class="overlay-stat-label">Championships</div>
+                            </div>
+                            <div class="overlay-stat">
+                                <div class="overlay-stat-value">105</div>
+                                <div class="overlay-stat-label">Wins</div>
+                            </div>
+                            <div class="overlay-stat">
+                                <div class="overlay-stat-value">202</div>
+                                <div class="overlay-stat-label">Podiums</div>
+                            </div>
+                            <div class="overlay-stat">
+                                <div class="overlay-stat-value">40</div>
+                                <div class="overlay-stat-label">Age</div>
+                            </div>
+                        </div>
+                        <div class="overlay-country">United Kingdom</div>
+                    </div>
+                </div>
+
+                <!-- Charles Leclerc -->
+                <div class="driver-card">
+                    <div class="driver-header">
+                        <div class="team-color-bar ferrari"></div>
+                        <div class="driver-number">16</div>
+                        <div class="driver-image">
+                            <img src="Home/Images/charlesleclerc.jpg" alt="Charles Leclerc">
+                        </div>
+                    </div>
+                    <div class="driver-info">
+                        <div class="driver-name">Charles Leclerc</div>
+                    </div>
+                    <div class="driver-overlay">
+                        <div class="overlay-name">Charles Leclerc</div>
+                        <div class="overlay-team">Ferrari</div>
+                        <div class="overlay-stats">
+                            <div class="overlay-stat">
+                                <div class="overlay-stat-value">0</div>
+                                <div class="overlay-stat-label">Championships</div>
+                            </div>
+                            <div class="overlay-stat">
+                                <div class="overlay-stat-value">8</div>
+                                <div class="overlay-stat-label">Wins</div>
+                            </div>
+                            <div class="overlay-stat">
+                                <div class="overlay-stat-value">47</div>
+                                <div class="overlay-stat-label">Podiums</div>
+                            </div>
+                            <div class="overlay-stat">
+                                <div class="overlay-stat-value">27</div>
+                                <div class="overlay-stat-label">Age</div>
+                            </div>
+                        </div>
+                        <div class="overlay-country">Monaco</div>
+                    </div>
+                </div>
+
+                <!-- Yuki Tsunoda -->
+                <div class="driver-card">
+                    <div class="driver-header">
+                        <div class="team-color-bar red-bull"></div>
+                        <div class="driver-number">11</div>
+                        <div class="driver-image">
+                            <img src="Home/Images/yukitsunoda.jpg" alt="Yuki Tsunoda">
+                        </div>
+                    </div>
+                    <div class="driver-info">
+                        <div class="driver-name">Yuki Tsunoda</div>
+                    </div>
+                    <div class="driver-overlay">
+                        <div class="overlay-name">Yuki Tsunoda</div>
+                        <div class="overlay-team">Red Bull Racing</div>
+                        <div class="overlay-stats">
+                            <div class="overlay-stat">
+                                <div class="overlay-stat-value">0</div>
+                                <div class="overlay-stat-label">Championships</div>
+                            </div>
+                            <div class="overlay-stat">
+                                <div class="overlay-stat-value">0</div>
+                                <div class="overlay-stat-label">Wins</div>
+                            </div>
+                            <div class="overlay-stat">
+                                <div class="overlay-stat-value">0</div>
+                                <div class="overlay-stat-label">Podiums</div>
+                            </div>
+                            <div class="overlay-stat">
+                                <div class="overlay-stat-value">35</div>
+                                <div class="overlay-stat-label">Age</div>
+                            </div>
+                        </div>
+                        <div class="overlay-country">Japan</div>
+                    </div>
+                </div>
+
+                <!-- George Russell -->
+                <div class="driver-card">
+                    <div class="driver-header">
+                        <div class="team-color-bar mercedes"></div>
+                        <div class="driver-number">63</div>
+                        <div class="driver-image">
+                            <img src="Home/Images/georgerussell.jpg" alt="George Russell">
+                        </div>
+                    </div>
+                    <div class="driver-info">
+                        <div class="driver-name">George Russell</div>
+                    </div>
+                    <div class="driver-overlay">
+                        <div class="overlay-name">George Russell</div>
+                        <div class="overlay-team">Mercedes</div>
+                        <div class="overlay-stats">
+                            <div class="overlay-stat">
+                                <div class="overlay-stat-value">0</div>
+                                <div class="overlay-stat-label">Championships</div>
+                            </div>
+                            <div class="overlay-stat">
+                                <div class="overlay-stat-value">4</div>
+                                <div class="overlay-stat-label">Wins</div>
+                            </div>
+                            <div class="overlay-stat">
+                                <div class="overlay-stat-value">20</div>
+                                <div class="overlay-stat-label">Podiums</div>
+                            </div>
+                            <div class="overlay-stat">
+                                <div class="overlay-stat-value">27</div>
+                                <div class="overlay-stat-label">Age</div>
+                            </div>
+                        </div>
+                        <div class="overlay-country">United Kingdom</div>
+                    </div>
+                </div>
+
+                <!-- Kimi Antonelli -->
+                <div class="driver-card">
+                    <div class="driver-header">
+                        <div class="team-color-bar mercedes"></div>
+                        <div class="driver-number">12</div>
+                        <div class="driver-image">
+                            <img src="Home/Images/kimiantonelli.jpg" alt="Kimi Antonelli">
+                        </div>
+                    </div>
+                    <div class="driver-info">
+                        <div class="driver-name">Kimi Antonelli</div>
+                    </div>
+                    <div class="driver-overlay">
+                        <div class="overlay-name">Kimi Antonelli</div>
+                        <div class="overlay-team">Mercedes</div>
+                        <div class="overlay-stats">
+                            <div class="overlay-stat">
+                                <div class="overlay-stat-value">0</div>
+                                <div class="overlay-stat-label">Championships</div>
+                            </div>
+                            <div class="overlay-stat">
+                                <div class="overlay-stat-value">0</div>
+                                <div class="overlay-stat-label">Wins</div>
+                            </div>
+                            <div class="overlay-stat">
+                                <div class="overlay-stat-value">1</div>
+                                <div class="overlay-stat-label">Podiums</div>
+                            </div>
+                            <div class="overlay-stat">
+                                <div class="overlay-stat-value">18</div>
+                                <div class="overlay-stat-label">Age</div>
+                            </div>
+                        </div>
+                        <div class="overlay-country">Italy</div>
+                    </div>
+                </div>
+
+                <!-- Fernando Alonso -->
+                <div class="driver-card">
+                    <div class="driver-header">
+                        <div class="team-color-bar aston-martin"></div>
+                        <div class="driver-number">14</div>
+                        <div class="driver-image">
+                            <img src="Home/Images/fernandoalonso.jpg" alt="Fernando Alonso">
+                        </div>
+                    </div>
+                    <div class="driver-info">
+                        <div class="driver-name">Fernando Alonso</div>
+                    </div>
+                    <div class="driver-overlay">
+                        <div class="overlay-name">Fernando Alonso</div>
+                        <div class="overlay-team">Aston Martin</div>
+                        <div class="overlay-stats">
+                            <div class="overlay-stat">
+                                <div class="overlay-stat-value">2</div>
+                                <div class="overlay-stat-label">Championships</div>
+                            </div>
+                            <div class="overlay-stat">
+                                <div class="overlay-stat-value">32</div>
+                                <div class="overlay-stat-label">Wins</div>
+                            </div>
+                            <div class="overlay-stat">
+                                <div class="overlay-stat-value">106</div>
+                                <div class="overlay-stat-label">Podiums</div>
+                            </div>
+                            <div class="overlay-stat">
+                                <div class="overlay-stat-value">43</div>
+                                <div class="overlay-stat-label">Age</div>
+                            </div>
+                        </div>
+                        <div class="overlay-country">Spain</div>
+                    </div>
+                </div>
+
+                <!-- Lance Stroll -->
+                <div class="driver-card">
+                    <div class="driver-header">
+                        <div class="team-color-bar aston-martin"></div>
+                        <div class="driver-number">18</div>
+                        <div class="driver-image">
+                            <img src="Home/Images/lancestroll.jpg" alt="Lance Stroll">
+                        </div>
+                    </div>
+                    <div class="driver-info">
+                        <div class="driver-name">Lance Stroll</div>
+                    </div>
+                    <div class="driver-overlay">
+                        <div class="overlay-name">Lance Stroll</div>
+                        <div class="overlay-team">Aston Martin</div>
+                        <div class="overlay-stats">
+                            <div class="overlay-stat">
+                                <div class="overlay-stat-value">0</div>
+                                <div class="overlay-stat-label">Championships</div>
+                            </div>
+                            <div class="overlay-stat">
+                                <div class="overlay-stat-value">0</div>
+                                <div class="overlay-stat-label">Wins</div>
+                            </div>
+                            <div class="overlay-stat">
+                                <div class="overlay-stat-value">3</div>
+                                <div class="overlay-stat-label">Podiums</div>
+                            </div>
+                            <div class="overlay-stat">
+                                <div class="overlay-stat-value">26</div>
+                                <div class="overlay-stat-label">Age</div>
+                            </div>
+                        </div>
+                        <div class="overlay-country">Canada</div>
+                    </div>
+                </div>
+                <!-- Pierre Gasly -->
+                <div class="driver-card">
+                    <div class="driver-header">
+                        <div class="team-color-bar alpine"></div>
+                        <div class="driver-number">18</div>
+                        <div class="driver-image">
+                            <img src="Home/Images/pierregasly.jpg" alt="Pierre Gasly">
+                        </div>
+                    </div>
+                    <div class="driver-info">
+                        <div class="driver-name">Pierre Gasly</div>
+                    </div>
+                    <div class="driver-overlay">
+                        <div class="overlay-name">Pierre Gasly</div>
+                        <div class="overlay-team">Alpine</div>
+                        <div class="overlay-stats">
+                            <div class="overlay-stat">
+                                <div class="overlay-stat-value">0</div>
+                                <div class="overlay-stat-label">Championships</div>
+                            </div>
+                            <div class="overlay-stat">
+                                <div class="overlay-stat-value">1</div>
+                                <div class="overlay-stat-label">Wins</div>
+                            </div>
+                            <div class="overlay-stat">
+                                <div class="overlay-stat-value">5</div>
+                                <div class="overlay-stat-label">Podiums</div>
+                            </div>
+                            <div class="overlay-stat">
+                                <div class="overlay-stat-value">26</div>
+                                <div class="overlay-stat-label">Age</div>
+                            </div>
+                        </div>
+                        <div class="overlay-country">France</div>
+                    </div>
+                </div>
+
+                <!-- Franco Colapinto -->
+                <div class="driver-card">
+                    <div class="driver-header">
+                        <div class="team-color-bar alpine"></div>
+                        <div class="driver-number">18</div>
+                        <div class="driver-image">
+                            <img src="Home/Images/francocolapinto.jpg" alt="Franco Colapinto">
+                        </div>
+                    </div>
+                    <div class="driver-info">
+                        <div class="driver-name">Franco Colapinto</div>
+                    </div>
+                    <div class="driver-overlay">
+                        <div class="overlay-name">Franco Colapinto</div>
+                        <div class="overlay-team">Alpine</div>
+                        <div class="overlay-stats">
+                            <div class="overlay-stat">
+                                <div class="overlay-stat-value">0</div>
+                                <div class="overlay-stat-label">Championships</div>
+                            </div>
+                            <div class="overlay-stat">
+                                <div class="overlay-stat-value">0</div>
+                                <div class="overlay-stat-label">Wins</div>
+                            </div>
+                            <div class="overlay-stat">
+                                <div class="overlay-stat-value">3</div>
+                                <div class="overlay-stat-label">Podiums</div>
+                            </div>
+                            <div class="overlay-stat">
+                                <div class="overlay-stat-value">26</div>
+                                <div class="overlay-stat-label">Age</div>
+                            </div>
+                        </div>
+                        <div class="overlay-country">Argentina</div>
+                    </div>
+                </div>
+
+                <!-- Esteban Ocon -->
+                <div class="driver-card">
+                    <div class="driver-header">
+                        <div class="team-color-bar haas"></div>
+                        <div class="driver-number">18</div>
+                        <div class="driver-image">
+                            <img src="Home/Images/estebanocon.jpg" alt="Esteban Ocon">
+                        </div>
+                    </div>
+                    <div class="driver-info">
+                        <div class="driver-name">Esteban Ocon</div>
+                    </div>
+                    <div class="driver-overlay">
+                        <div class="overlay-name">Esteban Ocon</div>
+                        <div class="overlay-team">Haas</div>
+                        <div class="overlay-stats">
+                            <div class="overlay-stat">
+                                <div class="overlay-stat-value">0</div>
+                                <div class="overlay-stat-label">Championships</div>
+                            </div>
+                            <div class="overlay-stat">
+                                <div class="overlay-stat-value">1</div>
+                                <div class="overlay-stat-label">Wins</div>
+                            </div>
+                            <div class="overlay-stat">
+                                <div class="overlay-stat-value">4</div>
+                                <div class="overlay-stat-label">Podiums</div>
+                            </div>
+                            <div class="overlay-stat">
+                                <div class="overlay-stat-value">26</div>
+                                <div class="overlay-stat-label">Age</div>
+                            </div>
+                        </div>
+                        <div class="overlay-country">France</div>
+                    </div>
+                </div>
+
+                <!-- Oliver Bearman -->
+                <div class="driver-card">
+                    <div class="driver-header">
+                        <div class="team-color-bar haas"></div>
+                        <div class="driver-number">18</div>
+                        <div class="driver-image">
+                            <img src="Home/Images/olliebearman.jpg" alt="Oliver Bearman">
+                        </div>
+                    </div>
+                    <div class="driver-info">
+                        <div class="driver-name">Oliver Bearman</div>
+                    </div>
+                    <div class="driver-overlay">
+                        <div class="overlay-name">Oliver Bearman</div>
+                        <div class="overlay-team">Haas</div>
+                        <div class="overlay-stats">
+                            <div class="overlay-stat">
+                                <div class="overlay-stat-value">0</div>
+                                <div class="overlay-stat-label">Championships</div>
+                            </div>
+                            <div class="overlay-stat">
+                                <div class="overlay-stat-value">0</div>
+                                <div class="overlay-stat-label">Wins</div>
+                            </div>
+                            <div class="overlay-stat">
+                                <div class="overlay-stat-value">0</div>
+                                <div class="overlay-stat-label">Podiums</div>
+                            </div>
+                            <div class="overlay-stat">
+                                <div class="overlay-stat-value">20</div>
+                                <div class="overlay-stat-label">Age</div>
+                            </div>
+                        </div>
+                        <div class="overlay-country">United Kingdom</div>
+                    </div>
+                </div>
+
+                <!-- Liam Lawson -->
+                <div class="driver-card">
+                    <div class="driver-header">
+                        <div class="team-color-bar alphatauri"></div>
+                        <div class="driver-number">18</div>
+                        <div class="driver-image">
+                            <img src="Home/Images/liamlawson.jpg" alt="Liam Lawson">
+                        </div>
+                    </div>
+                    <div class="driver-info">
+                        <div class="driver-name">Liam Lawson</div>
+                    </div>
+                    <div class="driver-overlay">
+                        <div class="overlay-name">Liam Lawson</div>
+                        <div class="overlay-team">Racing Bulls</div>
+                        <div class="overlay-stats">
+                            <div class="overlay-stat">
+                                <div class="overlay-stat-value">0</div>
+                                <div class="overlay-stat-label">Championships</div>
+                            </div>
+                            <div class="overlay-stat">
+                                <div class="overlay-stat-value">0</div>
+                                <div class="overlay-stat-label">Wins</div>
+                            </div>
+                            <div class="overlay-stat">
+                                <div class="overlay-stat-value">0</div>
+                                <div class="overlay-stat-label">Podiums</div>
+                            </div>
+                            <div class="overlay-stat">
+                                <div class="overlay-stat-value">21</div>
+                                <div class="overlay-stat-label">Age</div>
+                            </div>
+                        </div>
+                        <div class="overlay-country">New Zealand</div>
+                    </div>
+                </div>
+
+                <!-- Isack Hadjar -->
+                <div class="driver-card">
+                    <div class="driver-header">
+                        <div class="team-color-bar alphatauri"></div>
+                        <div class="driver-number">18</div>
+                        <div class="driver-image">
+                            <img src="Home/Images/isackhadjar.jpg" alt="Isack Hadjar">
+                        </div>
+                    </div>
+                    <div class="driver-info">
+                        <div class="driver-name">Isack Hadjar</div>
+                    </div>
+                    <div class="driver-overlay">
+                        <div class="overlay-name">Isack Hadjar</div>
+                        <div class="overlay-team">Racing Bulls</div>
+                        <div class="overlay-stats">
+                            <div class="overlay-stat">
+                                <div class="overlay-stat-value">0</div>
+                                <div class="overlay-stat-label">Championships</div>
+                            </div>
+                            <div class="overlay-stat">
+                                <div class="overlay-stat-value">0</div>
+                                <div class="overlay-stat-label">Wins</div>
+                            </div>
+                            <div class="overlay-stat">
+                                <div class="overlay-stat-value">0</div>
+                                <div class="overlay-stat-label">Podiums</div>
+                            </div>
+                            <div class="overlay-stat">
+                                <div class="overlay-stat-value">20</div>
+                                <div class="overlay-stat-label">Age</div>
+                            </div>
+                        </div>
+                        <div class="overlay-country">France</div>
+                    </div>
+                </div>
+
+                <!-- Alex Albon -->
+                <div class="driver-card">
+                    <div class="driver-header">
+                        <div class="team-color-bar williams"></div>
+                        <div class="driver-number">18</div>
+                        <div class="driver-image">
+                            <img src="Home/Images/alexalbon.jpg" alt="Alex Albon">
+                        </div>
+                    </div>
+                    <div class="driver-info">
+                        <div class="driver-name">Alex Albon</div>
+                    </div>
+                    <div class="driver-overlay">
+                        <div class="overlay-name">Alex Albon</div>
+                        <div class="overlay-team">Williams</div>
+                        <div class="overlay-stats">
+                            <div class="overlay-stat">
+                                <div class="overlay-stat-value">0</div>
+                                <div class="overlay-stat-label">Championships</div>
+                            </div>
+                            <div class="overlay-stat">
+                                <div class="overlay-stat-value">0</div>
+                                <div class="overlay-stat-label">Wins</div>
+                            </div>
+                            <div class="overlay-stat">
+                                <div class="overlay-stat-value">2</div>
+                                <div class="overlay-stat-label">Podiums</div>
+                            </div>
+                            <div class="overlay-stat">
+                                <div class="overlay-stat-value">29</div>
+                                <div class="overlay-stat-label">Age</div>
+                            </div>
+                        </div>
+                        <div class="overlay-country">Thailand</div>
+                    </div>
+                </div>
+
+                <!-- Carlos Sainz -->
+                <div class="driver-card">
+                    <div class="driver-header">
+                        <div class="team-color-bar williams"></div>
+                        <div class="driver-number">18</div>
+                        <div class="driver-image">
+                            <img src="Home/Images/carlossainz.jpg" alt="Carlos Sainz">
+                        </div>
+                    </div>
+                    <div class="driver-info">
+                        <div class="driver-name">Carlos Sainz</div>
+                    </div>
+                    <div class="driver-overlay">
+                        <div class="overlay-name">Carlos Sainz</div>
+                        <div class="overlay-team">Williams</div>
+                        <div class="overlay-stats">
+                            <div class="overlay-stat">
+                                <div class="overlay-stat-value">0</div>
+                                <div class="overlay-stat-label">Championships</div>
+                            </div>
+                            <div class="overlay-stat">
+                                <div class="overlay-stat-value">4</div>
+                                <div class="overlay-stat-label">Wins</div>
+                            </div>
+                            <div class="overlay-stat">
+                                <div class="overlay-stat-value">27</div>
+                                <div class="overlay-stat-label">Podiums</div>
+                            </div>
+                            <div class="overlay-stat">
+                                <div class="overlay-stat-value">31</div>
+                                <div class="overlay-stat-label">Age</div>
+                            </div>
+                        </div>
+                        <div class="overlay-country">Spain</div>
+                    </div>
+                </div>
+
+                <!-- Nico Hulkenberg -->
+                <div class="driver-card">
+                    <div class="driver-header">
+                        <div class="team-color-bar kick-sauber"></div>
+                        <div class="driver-number">18</div>
+                        <div class="driver-image">
+                            <img src="Home/Images/nicohulkenberg.jpg" alt="Nico Hulkenberg">
+                        </div>
+                    </div>
+                    <div class="driver-info">
+                        <div class="driver-name">Nico Hulkenberg</div>
+                    </div>
+                    <div class="driver-overlay">
+                        <div class="overlay-name">Nico Hulkenberg</div>
+                        <div class="overlay-team">Kick Sauber</div>
+                        <div class="overlay-stats">
+                            <div class="overlay-stat">
+                                <div class="overlay-stat-value">0</div>
+                                <div class="overlay-stat-label">Championships</div>
+                            </div>
+                            <div class="overlay-stat">
+                                <div class="overlay-stat-value">0</div>
+                                <div class="overlay-stat-label">Wins</div>
+                            </div>
+                            <div class="overlay-stat">
+                                <div class="overlay-stat-value">1</div>
+                                <div class="overlay-stat-label">Podiums</div>
+                            </div>
+                            <div class="overlay-stat">
+                                <div class="overlay-stat-value">41</div>
+                                <div class="overlay-stat-label">Age</div>
+                            </div>
+                        </div>
+                        <div class="overlay-country">Germany</div>
+                    </div>
+                </div>
+
+                <!-- Gabriel Bortoleto -->
+                <div class="driver-card">
+                    <div class="driver-header">
+                        <div class="team-color-bar kick-sauber"></div>
+                        <div class="driver-number">18</div>
+                        <div class="driver-image">
+                            <img src="Home/Images/gabrielbortoleto.jpg" alt="Gabriel Bortoleto">
+                        </div>
+                    </div>
+                    <div class="driver-info">
+                        <div class="driver-name">Gabriel Bortoleto</div>
+                    </div>
+                    <div class="driver-overlay">
+                        <div class="overlay-name">Gabriel Bortoleto</div>
+                        <div class="overlay-team">Kick Sauber</div>
+                        <div class="overlay-stats">
+                            <div class="overlay-stat">
+                                <div class="overlay-stat-value">0</div>
+                                <div class="overlay-stat-label">Championships</div>
+                            </div>
+                            <div class="overlay-stat">
+                                <div class="overlay-stat-value">0</div>
+                                <div class="overlay-stat-label">Wins</div>
+                            </div>
+                            <div class="overlay-stat">
+                                <div class="overlay-stat-value">0</div>
+                                <div class="overlay-stat-label">Podiums</div>
+                            </div>
+                            <div class="overlay-stat">
+                                <div class="overlay-stat-value">20</div>
+                                <div class="overlay-stat-label">Age</div>
+                            </div>
+                        </div>
+                        <div class="overlay-country">Brazil</div>
+                    </div>
+                </div>
+            </div>
+            <div class="scroll-indicator scroll-right" onclick="scrollDrivers('right')"></div>
+        </div>
+    </section>
+
+<section class="teams-section">
+        <h2 class="teams-section-title">2025 F1 TEAMS</h2>
+        <div class="teams-container">
+            <div class="scroll-indicator scroll-left" onclick="scrollTeams('left')"></div>
+            <div class="teams-scroll" id="teamsScroll">
+                
+                <!-- McLaren -->
+                <div class="teams-card">
+                    <div class="teams-header">
+                        <div class="team-color-bar mclaren"></div>
+                        <div class="teams-image">
+                            <img src="Home/Images/mclaren.jpg" alt="Mclaren">
+                        </div>
+                    </div>
+                    <div class="teams-info">
+                        <div class="teams-name">McLaren</div>
+                    </div>
+                    <div class="teams-overlay">
+                        <div class="overlay-name">McLaren F1 Team</div>
+                        <div class="overlay-drivers">Lando Norris | Oscar Piastri</div>
+        <div class="overlay-details">
+            <div class="overlay-detail">
+                <div class="overlay-detail-label">Team Principal</div>
+                <div class="overlay-detail-value">Andrea Stella</div>
+            </div>
+            <div class="overlay-detail">
+                <div class="overlay-detail-label">Power Unit</div>
+                <div class="overlay-detail-value">Mercedes</div>
+            </div>
+            <div class="overlay-detail">
+                <div class="overlay-detail-label">Base</div>
+                <div class="overlay-detail-value">Woking, UK</div>
+            </div>
+            <div class="overlay-detail">
+                <div class="overlay-detail-label">Founded</div>
+                <div class="overlay-detail-value">1966</div>
+            </div>
+        </div>
+        <div class="overlay-stats">
+            <div class="overlay-stat">
+                <div class="overlay-stat-value">9</div>
+                <div class="overlay-stat-label">Championships</div>
+            </div>
+            <div class="overlay-stat">
+                <div class="overlay-stat-value">7410.5</div>
+                <div class="overlay-stat-label">Points</div>
+            </div>
+            <div class="overlay-stat">
+                <div class="overlay-stat-value">435</div>
+                <div class="overlay-stat-label">Podiums</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+                <!-- Ferrari -->
+                <div class="teams-card">
+                    <div class="teams-header">
+                        <div class="team-color-bar ferrari"></div>
+                        <div class="teams-image">
+                            <img src="Home/Images/ferrari.jpg" alt="Ferrari">
+                        </div>
+                    </div>
+                    <div class="teams-info">
+                        <div class="teams-name">Ferrari</div>
+                    </div>
+                    <div class="teams-overlay">
+                        <div class="overlay-name">Scuderia Ferrari HP</div>
+                        <div class="overlay-drivers">Lewis Hamilton | Charles Leclerc</div>
+        <div class="overlay-details">
+            <div class="overlay-detail">
+                <div class="overlay-detail-label">Team Principal</div>
+                <div class="overlay-detail-value">Frédéric Vasseur</div>
+            </div>
+            <div class="overlay-detail">
+                <div class="overlay-detail-label">Power Unit</div>
+                <div class="overlay-detail-value">Ferrari</div>
+            </div>
+            <div class="overlay-detail">
+                <div class="overlay-detail-label">Base</div>
+                <div class="overlay-detail-value">Maranello, IT</div>
+            </div>
+            <div class="overlay-detail">
+                <div class="overlay-detail-label">Founded</div>
+                <div class="overlay-detail-value">1950</div>
+            </div>
+        </div>
+        <div class="overlay-stats">
+            <div class="overlay-stat">
+                <div class="overlay-stat-value">16</div>
+                <div class="overlay-stat-label">Championships</div>
+            </div>
+            <div class="overlay-stat">
+                <div class="overlay-stat-value">10499</div>
+                <div class="overlay-stat-label">Points</div>
+            </div>
+            <div class="overlay-stat">
+                <div class="overlay-stat-value">636</div>
+                <div class="overlay-stat-label">Podiums</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+                <!-- Red Bull Racing -->
+                <div class="teams-card">
+                    <div class="teams-header">
+                        <div class="team-color-bar red-bull"></div>
+                        <div class="teams-image">
+                            <img src="Home/Images/redbull.jpg" alt="Red Bull">
+                        </div>
+                    </div>
+                    <div class="teams-info">
+                        <div class="teams-name">Red Bull Racing</div>
+                    </div>
+                    <div class="teams-overlay">
+                        <div class="overlay-name">Oracle Red Bull Racing</div>
+                        <div class="overlay-drivers">Max Verstappen | Yuki Tsunoda</div>
+        <div class="overlay-details">
+            <div class="overlay-detail">
+                <div class="overlay-detail-label">Team Principal</div>
+                <div class="overlay-detail-value">Laurent Mekies</div>
+            </div>
+            <div class="overlay-detail">
+                <div class="overlay-detail-label">Power Unit</div>
+                <div class="overlay-detail-value">Honda RBPT</div>
+            </div>
+            <div class="overlay-detail">
+                <div class="overlay-detail-label">Base</div>
+                <div class="overlay-detail-value">Milton Keynes, UK</div>
+            </div>
+            <div class="overlay-detail">
+                <div class="overlay-detail-label">Founded</div>
+                <div class="overlay-detail-value">1997</div>
+            </div>
+        </div>
+        <div class="overlay-stats">
+            <div class="overlay-stat">
+                <div class="overlay-stat-value">6</div>
+                <div class="overlay-stat-label">Championships</div>
+            </div>
+            <div class="overlay-stat">
+                <div class="overlay-stat-value">8009</div>
+                <div class="overlay-stat-label">Points</div>
+            </div>
+            <div class="overlay-stat">
+                <div class="overlay-stat-value">223</div>
+                <div class="overlay-stat-label">Podiums</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+                <!-- Mercedes -->
+ <div class="teams-card">
+    <div class="teams-header">
+        <div class="team-color-bar mercedes"></div>
+        <div class="teams-image">
+            <img src="Home/Images/mercedes.jpg" alt="Mercedes">
+        </div>
+    </div>
+    <div class="teams-info">
+        <div class="teams-name">Mercedes</div>
+    </div>
+    <div class="teams-overlay">
+        <div class="overlay-name">Mercedes-AMG Petronas F1 Team</div>
+        <div class="overlay-drivers">George Russell | Kimi Antonelli</div>
+        <div class="overlay-details">
+            <div class="overlay-detail">
+                <div class="overlay-detail-label">Team Principal</div>
+                <div class="overlay-detail-value">Toto Wolf</div>
+            </div>
+            <div class="overlay-detail">
+                <div class="overlay-detail-label">Power Unit</div>
+                <div class="overlay-detail-value">Mercedes</div>
+            </div>
+            <div class="overlay-detail">
+                <div class="overlay-detail-label">Base</div>
+                <div class="overlay-detail-value">Brackley, UK</div>
+            </div>
+            <div class="overlay-detail">
+                <div class="overlay-detail-label">Founded</div>
+                <div class="overlay-detail-value">1970</div>
+            </div>
+        </div>
+        <div class="overlay-stats">
+            <div class="overlay-stat">
+                <div class="overlay-stat-value">8</div>
+                <div class="overlay-stat-label">Championships</div>
+            </div>
+            <div class="overlay-stat">
+                <div class="overlay-stat-value">7900.5</div>
+                <div class="overlay-stat-label">Points</div>
+            </div>
+            <div class="overlay-stat">
+                <div class="overlay-stat-value">196</div>
+                <div class="overlay-stat-label">Podiums</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+                <!-- Aston Martin -->
+<div class="teams-card">
+    <div class="teams-header">
+        <div class="team-color-bar aston-martin"></div>
+        <div class="teams-image">
+            <img src="Home/Images/astonmartin.jpg" alt="Aston Martin">
+        </div>
+    </div>
+    <div class="teams-info">
+        <div class="teams-name">Aston Martin</div>
+    </div>
+    <div class="teams-overlay">
+        <div class="overlay-name">Aston Martin Aramco F1 Team</div>
+        <div class="overlay-drivers">Fernando Alonso | Lance Stroll</div>
+        <div class="overlay-details">
+            <div class="overlay-detail">
+                <div class="overlay-detail-label">Team Principal</div>
+                <div class="overlay-detail-value">Andy Cowell</div>
+            </div>
+            <div class="overlay-detail">
+                <div class="overlay-detail-label">Power Unit</div>
+                <div class="overlay-detail-value">Mercedes</div>
+            </div>
+            <div class="overlay-detail">
+                <div class="overlay-detail-label">Base</div>
+                <div class="overlay-detail-value">Silverstone, UK</div>
+            </div>
+            <div class="overlay-detail">
+                <div class="overlay-detail-label">Founded</div>
+                <div class="overlay-detail-value">2018</div>
+            </div>
+        </div>
+        <div class="overlay-stats">
+            <div class="overlay-stat">
+                <div class="overlay-stat-value">0</div>
+                <div class="overlay-stat-label">Championships</div>
+            </div>
+            <div class="overlay-stat">
+                <div class="overlay-stat-value">810</div>
+                <div class="overlay-stat-label">Points</div>
+            </div>
+            <div class="overlay-stat">
+                <div class="overlay-stat-value">12</div>
+                <div class="overlay-stat-label">Podiums</div>
+            </div>
+        </div>
+    </div>
+</div>
+                
+                <!-- Alpine -->
+                <div class="teams-card">
+    <div class="teams-header">
+        <div class="team-color-bar alpine"></div>
+        <div class="teams-image">
+            <img src="Home/Images/alpine.jpg" alt="Alpine">
+        </div>
+    </div>
+    <div class="teams-info">
+        <div class="teams-name">Alpine</div>
+    </div>
+    <div class="teams-overlay">
+        <div class="overlay-name">BWT Alpine F1 Team</div>
+        <div class="overlay-drivers">Pierre Gasly | Franco Colapinto</div>
+        <div class="overlay-details">
+            <div class="overlay-detail">
+                <div class="overlay-detail-label">Team Principal</div>
+                <div class="overlay-detail-value">Flavio Briatore</div>
+            </div>
+            <div class="overlay-detail">
+                <div class="overlay-detail-label">Power Unit</div>
+                <div class="overlay-detail-value">Renault</div>
+            </div>
+            <div class="overlay-detail">
+                <div class="overlay-detail-label">Base</div>
+                <div class="overlay-detail-value">Enstone, UK</div>
+            </div>
+            <div class="overlay-detail">
+                <div class="overlay-detail-label">Founded</div>
+                <div class="overlay-detail-value">1986</div>
+            </div>
+        </div>
+        <div class="overlay-stats">
+            <div class="overlay-stat">
+                <div class="overlay-stat-value">2</div>
+                <div class="overlay-stat-label">Championships</div>
+            </div>
+            <div class="overlay-stat">
+                <div class="overlay-stat-value">1997</div>
+                <div class="overlay-stat-label">Points</div>
+            </div>
+            <div class="overlay-stat">
+                <div class="overlay-stat-value">60</div>
+                <div class="overlay-stat-label">Podiums</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+                <!-- Haas -->
+                <div class="teams-card">
+    <div class="teams-header">
+        <div class="team-color-bar haas"></div>
+        <div class="teams-image">
+            <img src="Home/Images/haas.jpg" alt="Aston Martin">
+        </div>
+    </div>
+    <div class="teams-info">
+        <div class="teams-name">Haas</div>
+    </div>
+    <div class="teams-overlay">
+        <div class="overlay-name">MoneyGram Haas F1 Team</div>
+        <div class="overlay-drivers">Esteban Ocon | Oliver Bearman</div>
+        <div class="overlay-details">
+            <div class="overlay-detail">
+                <div class="overlay-detail-label">Team Principal</div>
+                <div class="overlay-detail-value">Ayao Komatsu</div>
+            </div>
+            <div class="overlay-detail">
+                <div class="overlay-detail-label">Power Unit</div>
+                <div class="overlay-detail-value">Ferrari</div>
+            </div>
+            <div class="overlay-detail">
+                <div class="overlay-detail-label">Base</div>
+                <div class="overlay-detail-value">Kannapolis, US</div>
+            </div>
+            <div class="overlay-detail">
+                <div class="overlay-detail-label">Founded</div>
+                <div class="overlay-detail-value">2016</div>
+            </div>
+        </div>
+        <div class="overlay-stats">
+            <div class="overlay-stat">
+                <div class="overlay-stat-value">0</div>
+                <div class="overlay-stat-label">Championships</div>
+            </div>
+            <div class="overlay-stat">
+                <div class="overlay-stat-value">336</div>
+                <div class="overlay-stat-label">Points</div>
+            </div>
+            <div class="overlay-stat">
+                <div class="overlay-stat-value">0</div>
+                <div class="overlay-stat-label">Podiums</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+                <!-- Racing Bulls -->
+                <div class="teams-card">
+    <div class="teams-header">
+        <div class="team-color-bar alphatauri"></div>
+        <div class="teams-image">
+            <img src="Home/Images/racingbulls.jpg" alt="Aston Martin">
+        </div>
+    </div>
+    <div class="teams-info">
+        <div class="teams-name">Racing Bulls</div>
+    </div>
+    <div class="teams-overlay">
+        <div class="overlay-name">Visa Cash App Racing Bulls F1 Team</div>
+        <div class="overlay-drivers">Liam Lawson | Isack Hadjar</div>
+        <div class="overlay-details">
+            <div class="overlay-detail">
+                <div class="overlay-detail-label">Team Principal</div>
+                <div class="overlay-detail-value">Alan Permane</div>
+            </div>
+            <div class="overlay-detail">
+                <div class="overlay-detail-label">Power Unit</div>
+                <div class="overlay-detail-value">Honda RBPT</div>
+            </div>
+            <div class="overlay-detail">
+                <div class="overlay-detail-label">Base</div>
+                <div class="overlay-detail-value">Faenza, IT</div>
+            </div>
+            <div class="overlay-detail">
+                <div class="overlay-detail-label">Founded</div>
+                <div class="overlay-detail-value">1985</div>
+            </div>
+        </div>
+        <div class="overlay-stats">
+            <div class="overlay-stat">
+                <div class="overlay-stat-value">0</div>
+                <div class="overlay-stat-label">Championships</div>
+            </div>
+            <div class="overlay-stat">
+                <div class="overlay-stat-value">891</div>
+                <div class="overlay-stat-label">Points</div>
+            </div>
+            <div class="overlay-stat">
+                <div class="overlay-stat-value">5</div>
+                <div class="overlay-stat-label">Podiums</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+                <!-- Williams -->
+                <div class="teams-card">
+    <div class="teams-header">
+        <div class="team-color-bar williams"></div>
+        <div class="teams-image">
+            <img src="Home/Images/williams.jpg" alt="Aston Martin">
+        </div>
+    </div>
+    <div class="teams-info">
+        <div class="teams-name">Williams</div>
+    </div>
+    <div class="teams-overlay">
+        <div class="overlay-name">Atlassian Williams Racing</div>
+        <div class="overlay-drivers">Alex Albon | Carlos Sainz</div>
+        <div class="overlay-details">
+            <div class="overlay-detail">
+                <div class="overlay-detail-label">Team Principal</div>
+                <div class="overlay-detail-value">James Vowles</div>
+            </div>
+            <div class="overlay-detail">
+                <div class="overlay-detail-label">Power Unit</div>
+                <div class="overlay-detail-value">Mercedes</div>
+            </div>
+            <div class="overlay-detail">
+                <div class="overlay-detail-label">Base</div>
+                <div class="overlay-detail-value">Grove, UK</div>
+            </div>
+            <div class="overlay-detail">
+                <div class="overlay-detail-label">Founded</div>
+                <div class="overlay-detail-value">1978</div>
+            </div>
+        </div>
+        <div class="overlay-stats">
+            <div class="overlay-stat">
+                <div class="overlay-stat-value">9</div>
+                <div class="overlay-stat-label">Championships</div>
+            </div>
+            <div class="overlay-stat">
+                <div class="overlay-stat-value">3690</div>
+                <div class="overlay-stat-label">Points</div>
+            </div>
+            <div class="overlay-stat">
+                <div class="overlay-stat-value">243</div>
+                <div class="overlay-stat-label">Podiums</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+                <!-- Sauber -->
+                <div class="teams-card">
+    <div class="teams-header">
+        <div class="team-color-bar kick-sauber"></div>
+        <div class="teams-image">
+            <img src="Home/Images/kicksauber.jpg" alt="Aston Martin">
+        </div>
+    </div>
+    <div class="teams-info">
+        <div class="teams-name">Kick Sauber</div>
+    </div>
+    <div class="teams-overlay">
+        <div class="overlay-name">Stake F1 Team Kick Sauber</div>
+        <div class="overlay-drivers">Nico Hulkenberg | Gabriel Bortoleto</div>
+        <div class="overlay-details">
+            <div class="overlay-detail">
+                <div class="overlay-detail-label">Team Principal</div>
+                <div class="overlay-detail-value">Jonathan Wheatley</div>
+            </div>
+            <div class="overlay-detail">
+                <div class="overlay-detail-label">Power Unit</div>
+                <div class="overlay-detail-value">Ferrari</div>
+            </div>
+            <div class="overlay-detail">
+                <div class="overlay-detail-label">Base</div>
+                <div class="overlay-detail-value">Hinwil, CH</div>
+            </div>
+            <div class="overlay-detail">
+                <div class="overlay-detail-label">Founded</div>
+                <div class="overlay-detail-value">1993</div>
+            </div>
+        </div>
+        <div class="overlay-stats">
+            <div class="overlay-stat">
+                <div class="overlay-stat-value">0</div>
+                <div class="overlay-stat-label">Championships</div>
+            </div>
+            <div class="overlay-stat">
+                <div class="overlay-stat-value">1059</div>
+                <div class="overlay-stat-label">Points</div>
+            </div>
+            <div class="overlay-stat">
+                <div class="overlay-stat-value">27</div>
+                <div class="overlay-stat-label">Podiums</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="scroll-indicator scroll-right" onclick="scrollTeams('right')"></div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="ds-footer">
+  <div class="ds-footer-container">
+    <!-- Left side - Contact info -->
+    <div class="ds-footer-left">
+      <span>Contact</span>
+      <p>05isabelchen@berkeley.edu</p>
+    </div>
+    
+    <!-- Right side - Social links -->
+    <div class="ds-footer-right">
+      <div class="social-links">
+        <a href="https://linkedin.com/in/05isabelchen" target="_blank" class="footer-link">LinkedIn</a>
+        <a href="https://github.com/05isabelchen" target="_blank" class="footer-link">GitHub</a>
+      </div>
+    </div>
+  </div>
+  </footer>
+
+    <script src = "Home/home.js"></script>
+</body>
+</html>
