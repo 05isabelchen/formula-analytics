@@ -1,0 +1,2668 @@
+* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .squada-one-regular {
+            font-family: "Squada One", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        .racing-sans-one-regular {
+            font-family: "Racing Sans One", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        .sansation-regular {
+  font-family: "Sansation", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+        body {
+    font-family: "Sansation", sans-serif;
+    color: white;
+    overflow-x: hidden;
+    min-height: 100vh;
+    background-image: url('Images/HomeBackground.png');
+    background-size: contain;  /* Change from 'cover' to 'contain' */
+    background-color: rgb(41, 41, 41, 0.85);
+    background-blend-mode: multiply;
+    line-height: 1.6;
+}
+
+/* Navigation - Updated */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    padding: 0.25rem 0.5rem; /* Increased padding to give nav more height */
+    transition: all 0.3s ease;
+    transform: translateY(0);
+}
+
+/* Hide navigation on scroll */
+nav.nav-hidden {
+    transform: translateY(-100%);
+}
+
+/* Show navigation on hover area */
+nav:hover {
+    transform: translateY(0) !important;
+}
+
+/* Create a hover trigger area at the top */
+nav::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: 0;
+    width: 100%;
+    height: 20px;
+    background: transparent;
+    z-index: 1001;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative; /* Added for dropdown positioning */
+}
+
+.logo {
+    font-family: "Racing Sans One", sans-serif;
+    font-size: 2rem;
+    font-weight: bold;
+    background: linear-gradient(45deg, #ff1744, #ff6b35);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.nav-links {
+    font-family: "Squada One", sans-serif;
+    font-size: 1.3rem;
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    margin: 0; /* Reset any default margin */
+    padding: 0; /* Reset any default padding */
+}
+
+.nav-links li {
+    position: relative; /* Ensure dropdown positioning works */
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+    display: block; /* Ensure proper display */
+    padding: 0.5rem 0; /* Add some padding for better click area */
+}
+
+.nav-links a:hover {
+    color: #ff1744;
+    transform: translateY(-2px);
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(45deg, #ff1744, #ff6b35);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* Dropdown Menu Styles - FIXED */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: calc(100% + 0.5rem); /* Positioned just below the nav link */
+    left: 0;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(15px);
+    min-width: 200px;
+    border-radius: 10px;
+    padding: 0.5rem 0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 23, 68, 0.2);
+    z-index: 2000; /* Increased z-index to be above nav */
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    list-style: none; /* Remove list styling */
+    margin: 0; /* Reset margin */
+}
+
+/* Keep dropdown visible when hovering over the dropdown itself */
+.dropdown:hover .dropdown-menu,
+.dropdown-menu:hover {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Add a small invisible bridge to prevent dropdown from closing */
+.dropdown::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 0.5rem;
+    background: transparent;
+    z-index: 1999;
+}
+
+.dropdown-menu li {
+    display: block;
+    margin: 0;
+    list-style: none;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 0.8rem 1.5rem;
+    color: white;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+    border-radius: 0;
+    transform: none; /* Reset any transforms */
+}
+
+.dropdown-menu a:hover {
+    color: #ff1744;
+    transform: translateX(5px);
+}
+
+.dropdown-menu a::after {
+    display: none; /* Remove underline effect for dropdown items */
+}
+
+/* Ensure dropdown stays open when moving mouse to it */
+.dropdown:hover .dropdown-menu {
+    pointer-events: auto;
+}
+
+/* Alternative fix: Add more specific hover rules */
+.dropdown:hover > .dropdown-menu {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Remove conflicting styles */
+.nav ul li a:hover,
+.nav ul li a.active {
+    color: #ff1744; /* Changed from black to maintain consistency */
+}
+
+/* Remove duplicate underline styles that might conflict */
+.nav ul li a::after {
+    display: none; /* Remove since we're using .nav-links a::after */
+}
+
+        /* Hero Section */
+        .hero {
+            height: 20vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            margin-top: 100px;
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 2;
+            position: relative;
+            max-width: 1000px;
+            padding: 0 1rem;
+        }
+
+        .hero-title {
+            font-family: "Racing Sans One", sans-serif;
+            font-size: 5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #fff, #ff1744, #ff6b35);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: titleGlow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes titleGlow {
+            0% { filter: drop-shadow(0 0 10px rgba(255,23,68,0.5)); }
+            100% { filter: drop-shadow(0 0 20px rgba(255,107,53,0.8)); }
+        }
+
+        /* Main Content Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Header Section */
+        header {
+            padding: 2rem 0;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        header h1 {
+            font-family: "Racing Sans One", sans-serif;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #fff, #ff1744);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            color: #ff6b35;
+        }
+
+        /* Highlight Box */
+        .highlight-box {
+            background: rgba(0, 0, 0, 0.8);
+            border: 1px solid rgba(255, 23, 69, 0.834);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .highlight-box h3 {
+            font-family: "Squada One", sans-serif;
+            color: #ff1744;
+            margin-bottom: 1rem;
+            font-size: 2rem;
+        }
+
+/* Stats Section */
+.stats {
+    padding: 2rem;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 23, 68, 0.2);
+    max-width: 1200px;
+    margin: 0 auto; /* This centers the element */
+}
+
+.stats-main-box {
+    margin: 0 auto;
+    padding: 2rem;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 23, 68, 0.2);
+    max-width: 1200px;
+    box-align: center;
+}
+
+.stat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.stat-card {
+    text-align: center;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 23, 68, 0.2);
+    transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-10px);
+    border-color: rgba(255, 23, 68, 0.5);
+    box-shadow: 0 20px 40px rgba(255, 23, 68, 0.2);
+}
+
+.stat-number {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #ff1744;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.stats-main-box h3 {
+    font-family: "Racing Sans One", sans-serif;
+    color: #ff6b35;
+    margin: 2rem 0 1rem 0;
+    font-size: 1.5rem;
+}
+
+.stats-main-box ul {
+    padding-left: 2rem;
+    margin: 1rem 0;
+}
+
+.stats-main-box li {
+    margin: 0.5rem 0;
+}
+
+.stats-main-box li strong {
+    color: #ff6b35;
+}
+
+        /* Section Styling */
+        /* Section Styling - Updated to work both inside and outside container */
+.section {
+    margin: 4rem auto; 
+    padding: 2rem;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 23, 68, 0.2);
+    max-width: 1200px; /* Add max-width constraint */
+    width: 100%; /* Ensure full width within max-width */
+}
+
+
+        .section h2 {
+            font-family: "Racing Sans One", sans-serif;
+            font-size: 3rem;
+            background: linear-gradient(45deg, #fff, #ff0c0c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-align: center;
+        }
+
+        .section h3 {
+            font-family: "Squada One", sans-serif;
+            color: #ff6b35;
+            margin: 2rem 0 1rem 0;
+            font-size: 2rem;
+        }
+        .section h4 {
+            font-family: "Sansation", sans-serif;
+            color: #ffffff;
+            margin: 2rem 0 1rem 0;
+            font-size: 1.25rem;
+        }
+        .section h4 strong{
+            font-family: "Sansation", sans-serif;
+            color: #ff0a0a;
+            margin: 2rem 0 1rem 0;
+            font-size: 1.25rem;
+        }
+
+        .section h5 {
+            font-family: "Sansation", sans-serif;
+            color: #ff8000;
+            margin: 1rem 0 1rem 0;
+            font-size: 1rem;
+        }
+        .section p strong{
+            font-family: "Sansation", sans-serif;
+            color: #fe8a8a;
+            margin: 2rem 0 1rem 0;
+            font-size: 1rem;
+        }
+
+        /* Driver Standings - Compact Version */
+.driver-standings {
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    padding: 0.5rem; /* Reduced from 1rem */
+    margin: 0.5rem 0; /* Reduced from 1rem */
+}
+
+.driver-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.6rem 1rem; /* Reduced vertical padding from 1rem to 0.6rem */
+    margin: 0.25rem 0; /* Reduced from 0.5rem */
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    border-left: 4px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.driver-row:hover {
+    background: rgba(255, 23, 68, 0.1);
+    transform: translateX(5px);
+}
+
+.championship-winner {
+    border-left-color: #03ffd1;
+    background: rgba(23, 255, 212, 0.496);
+}
+
+.position {
+    font-weight: bold;
+    font-size: 1.1rem; /* Slightly reduced from 1.2rem */
+    color: #ff6b35;
+    min-width: 35px; /* Reduced from 40px */
+}
+
+.driver-name-standing {
+    font-family: "Squada One", sans-serif;
+    flex: 1;
+    margin-left: 0.8rem; /* Reduced from 1rem */
+    font-weight: 300;
+    font-size: 1.5rem; /* Added smaller font size */
+}
+
+.points {
+    font-weight: bold;
+    color: #ff4d00;
+    font-size: 1rem; /* Added smaller font size */
+}
+
+.always-visible,
+.always-visible * {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    transition: none !important;
+}
+
+/* Alternative: More specific targeting */
+.section.always-visible,
+.section.always-visible .driver-row,
+.section.always-visible .driver-standings,
+#championship,
+#championship .driver-row {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    animation: none !important;
+}
+
+        /* Race Grid */
+        .race-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .race-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 23, 68, 0.2);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .race-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255, 23, 68, 0.5);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .race-header {
+            background: linear-gradient(45deg, #ff1744, #ff6b35);
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .race-header h4 {
+            font-family: "Racing Sans One", sans-serif;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .race-content {
+            padding: 1.5rem;
+        }
+
+        .race-content p {
+            margin: 0.5rem 0;
+        }
+
+        .race-content strong {
+            color: #ff6b35;
+        }
+
+        .summary-tables {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 2rem 0;
+    align-items: start;
+    justify-items: center;
+}
+
+.correlation-table, .race-table {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 23, 68, 0.2);
+    overflow: hidden;
+    width: 75%;
+    border-collapse: collapse;
+    
+}
+
+.correlation-table thead, .race-table thead {
+    background: linear-gradient(45deg, #ff1744, #ff6b35);
+}
+
+.correlation-table th, .race-table th {
+    font-family: "Sansation", sans-serif;
+    padding: 0.25rem;
+    text-align: center;
+    color: white;
+    font-size: 1.25rem;
+}
+
+.correlation-table td, .race-table td {
+    padding: 0.5rem 0.75rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    font-family: "Sansation", sans-serif;
+}
+
+.correlation-table td:first-child, .race-table td:first-child {
+    color: #ff6b35;
+    font-weight: bold;
+}
+
+.correlation-table td:last-child, .race-table td:last-child {
+    color: #ffffff;
+    text-align: right;
+}
+
+.correlation-table tbody tr, .race-table tbody tr {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+@media (max-width: 768px) {
+    .summary-tables {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+}
+
+/* Driver Cards Section */
+        .drivers-section {
+            padding: 2rem 2rem;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .drivers-section-title {
+            text-align: center;
+            font-family: 'Racing Sans One', sans-serif;
+            font-size: 4rem;
+            font-weight: bold;
+            margin-bottom: 3rem;
+            background: linear-gradient(45deg, #fff, #ff1744);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .drivers-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .drivers-scroll {
+    display: flex;
+    overflow-x: auto;
+    gap: 1.5rem;
+    padding: 1rem 0 2rem 0;
+    scroll-behavior: smooth;
+    
+    /* Hide scrollbar for all browsers */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+/* Hide scrollbar for WebKit browsers (Chrome, Safari, Edge) */
+.drivers-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+        .driver-card {
+            min-width: 280px;
+            max-width: 300px;
+            height: 400px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 23, 68, 0.2);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .driver-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(255, 23, 68, 0.5);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .driver-header {
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .team-color-bar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            z-index: 2;
+        }
+
+        .driver-image {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #333, #666);
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+            position: relative;
+        }
+        .driver-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+        .driver-info {
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .driver-number {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            opacity: 0.6;
+        }
+
+        .driver-name {
+            font-family: "Squada One", sans-serif;
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            color: white;
+        }
+
+        .driver-team {
+            font-family: "Squada One", sans-serif;
+            font-size: 1rem;
+            color: #ff6b35;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .driver-stats {
+            display: flex;
+            justify-content: space-between;
+            margin: 1rem 0;
+        }
+
+        .stat-item {
+            text-align: center;
+            flex: 1;
+        }
+
+        .stat-value {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #ff1744;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            opacity: 0.7;
+            margin-top: 0.2rem;
+        }
+
+        .driver-country {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Hover overlay for detailed info */
+        .driver-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.277);
+            backdrop-filter: blur(10px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+            pointer-events: none;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .driver-card:hover .driver-overlay {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: all;
+        }
+
+        .overlay-name {
+            font-family: "Squada One", sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: white;
+        }
+
+        .overlay-team {
+            font-family: "Squada One", sans-serif;
+            font-size: 2rem;
+            color: #ffffff;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .overlay-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            width: 100%;
+            margin-bottom: 1rem;
+        }
+
+        .overlay-stat {
+            text-align: center;
+        }
+
+        .overlay-stat-value {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #ff1744;
+        }
+
+        .overlay-stat-label {
+            font-size: 0.8rem;
+            opacity: 0.7;
+            margin-top: 0.2rem;
+        }
+
+        .overlay-country {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-top: 1rem;
+        }
+
+        /* Default state - simplified view */
+        .driver-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1rem;
+            text-align: center;
+            background: linear-gradient(to top, rgb(0, 0, 0), transparent);
+            transition: all 0.3s ease;
+        }
+
+        .driver-card:hover .driver-info {
+            opacity: 0;
+        }
+
+        /* Team-specific colors */
+        .red-bull { background: linear-gradient(135deg, #0600ef, #a20000); }
+        .mercedes { background: linear-gradient(135deg, #00d2be, #00b9aa); }
+        .ferrari { background: linear-gradient(135deg, #dc143c, #ff1744); }
+        .mclaren { background: linear-gradient(135deg, #ff8700, #aa6300); }
+        .marussia { background: linear-gradient(135deg, #ff4d01, #000000); }
+        .alpine { background: linear-gradient(135deg, #0077ff, #005cbf); }
+        .williams { background: linear-gradient(135deg, #005aff, #fefefe); }
+        .tororosso { background: linear-gradient(135deg, #2200ff, #870000); }
+        .sauber { background: linear-gradient(135deg, #2200a8, #d8d50a); }
+        .lotus { background: linear-gradient(135deg, #000000b9, #d5a400); }
+
+        /* Scroll indicators */
+        .scroll-indicator {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 23, 68, 0.8);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .scroll-indicator:hover {
+            background: rgba(255, 23, 68, 1);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .scroll-left {
+            left: -20px;
+        }
+
+        .scroll-right {
+            right: -20px;
+        }
+
+        .scroll-indicator::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            border: 2px solid white;
+            border-bottom: none;
+            border-right: none;
+            transform: rotate(-45deg);
+        }
+
+        .scroll-right::before {
+            transform: rotate(135deg);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .drivers-section {
+                padding: 2rem 1rem;
+            }
+            
+            .drivers-section-title {
+                font-size: 2rem;
+            }
+            
+            .driver-card {
+                min-width: 250px;
+            }
+            
+            .scroll-indicator {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .driver-card {
+                min-width: 220px;
+            }
+            
+            .drivers-scroll {
+                gap: 1rem;
+            }
+        }
+
+        /* Animation for cards appearing */
+        .driver-card {
+            animation: slideInFromRight 0.6s ease-out forwards;
+            opacity: 0;
+            transform: translateX(50px);
+        }
+
+        .driver-card:nth-child(1) { animation-delay: 0.1s; }
+        .driver-card:nth-child(2) { animation-delay: 0.2s; }
+        .driver-card:nth-child(3) { animation-delay: 0.3s; }
+        .driver-card:nth-child(4) { animation-delay: 0.4s; }
+        .driver-card:nth-child(5) { animation-delay: 0.5s; }
+
+        @keyframes slideInFromRight {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+/* End of Driver Section*/
+
+/* Team Cards Section */
+        .teams-section {
+            padding: 4rem 2rem;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .teams-section-title {
+            text-align: center;
+            font-family: 'Racing Sans One', sans-serif;
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 3rem;
+            background: linear-gradient(45deg, #fff, #ff1744);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .teams-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .teams-scroll {
+    display: flex;
+    overflow-x: auto;
+    gap: 1.5rem;
+    padding: 1rem 0 2rem 0;
+    scroll-behavior: smooth;
+    
+    /* Hide scrollbar for all browsers */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+/* Hide scrollbar for WebKit browsers (Chrome, Safari, Edge) */
+.teams-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+        .teams-card {
+            min-width: 280px;
+            max-width: 300px;
+            height: 400px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 23, 68, 0.2);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .teams-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(255, 23, 68, 0.5);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .teams-header {
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .team-color-bar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            z-index: 2;
+        }
+
+        .teams-image {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #333, #666);
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+            position: relative;
+        }
+        .teams-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+        .teams-info {
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .teams-number {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            opacity: 0.6;
+        }
+
+        .teams-name {
+            font-family: "Squada One", sans-serif;
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            color: white;
+        }
+
+        .teams-team {
+            font-size: 1rem;
+            color: #ff6b35;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .teams-stats {
+            display: flex;
+            justify-content: space-between;
+            margin: 1rem 0;
+        }
+
+        .stat-item {
+            text-align: center;
+            flex: 1;
+        }
+
+        .stat-value {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #ff1744;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            opacity: 0.7;
+            margin-top: 0.2rem;
+        }
+
+        .teams-country {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Hover overlay for detailed info */
+        .teams-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.277);
+            backdrop-filter: blur(10px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+            pointer-events: none;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .teams-card:hover .teams-overlay {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: all;
+        }
+
+        .overlay-drivers {
+    font-size: 1rem;
+    color: #fbfbfb;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+}
+
+.overlay-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.8rem;
+    margin-bottom: 1.5rem;
+    width: 100%;
+}
+
+.overlay-detail {
+    text-align: center;
+}
+
+.overlay-detail-label {
+    font-size: 0.8rem;
+    opacity: 0.7;
+    margin-bottom: 0.2rem;
+}
+
+.overlay-detail-value {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: white;
+}
+
+        .overlay-name {
+            font-family: "Squada One", sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: white;
+        }
+
+        .overlay-team {
+            font-size: 1.1rem;
+            color: #ffffff;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .overlay-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            width: 100%;
+            margin-bottom: 1rem;
+        }
+
+        .overlay-stat {
+            text-align: center;
+        }
+
+        .overlay-stat-value {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #ff1744;
+        }
+
+        .overlay-stat-label {
+            font-size: 0.8rem;
+            opacity: 0.7;
+            margin-top: 0.2rem;
+        }
+
+        .overlay-country {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-top: 1rem;
+        }
+
+        /* Default state - simplified view */
+        .teams-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1rem;
+            text-align: center;
+            background: linear-gradient(to top, rgb(0, 0, 0), transparent);
+            transition: all 0.3s ease;
+        }
+
+        .teams-card:hover .teams-info {
+            opacity: 0;
+        }
+
+        /* Team-specific colors */
+        /* Team-specific colors */
+        .red-bull { background: linear-gradient(135deg, #0600ef, #a20000); }
+        .mercedes { background: linear-gradient(135deg, #00d2be, #00b9aa); }
+        .ferrari { background: linear-gradient(135deg, #dc143c, #ff1744); }
+        .mclaren { background: linear-gradient(135deg, #ff8700, #aa6300); }
+        .marussia { background: linear-gradient(135deg, #ff4d01, #000000); }
+        .alpine { background: linear-gradient(135deg, #0077ff, #005cbf); }
+        .williams { background: linear-gradient(135deg, #005aff, #fefefe); }
+        .tororosso { background: linear-gradient(135deg, #2200ff, #870000); }
+        .sauber { background: linear-gradient(135deg, #2200a8, #d8d50a); }
+        .lotus { background: linear-gradient(135deg, #000000b9, #d5a400); }
+
+        /* Scroll indicators */
+        .scroll-indicator {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 23, 68, 0.8);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .scroll-indicator:hover {
+            background: rgba(255, 23, 68, 1);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .scroll-left {
+            left: -20px;
+        }
+
+        .scroll-right {
+            right: -20px;
+        }
+
+        .scroll-indicator::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            border: 2px solid white;
+            border-bottom: none;
+            border-right: none;
+            transform: rotate(-45deg);
+        }
+
+        .scroll-right::before {
+            transform: rotate(135deg);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .teams-section {
+                padding: 2rem 1rem;
+            }
+            
+            .teams-section-title {
+                font-size: 2rem;
+            }
+            
+            .teams-card {
+                min-width: 250px;
+            }
+            
+            .scroll-indicator {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .teams-card {
+                min-width: 220px;
+            }
+            
+            .teams-scroll {
+                gap: 1rem;
+            }
+        }
+
+        /* Animation for cards appearing */
+        .teams-card {
+            animation: slideInFromRight 0.6s ease-out forwards;
+            opacity: 0;
+            transform: translateX(50px);
+        }
+
+        .teams-card:nth-child(1) { animation-delay: 0.1s; }
+        .teams-card:nth-child(2) { animation-delay: 0.2s; }
+        .teams-card:nth-child(3) { animation-delay: 0.3s; }
+        .teams-card:nth-child(4) { animation-delay: 0.4s; }
+        .teams-card:nth-child(5) { animation-delay: 0.5s; }
+
+        @keyframes slideInFromRight {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+
+/* Race Slideshow Section - UNCHANGED - Keeps original size */
+/* Slideshow Container - Ensure it fits within section */
+.slideshow-container {
+    position: relative;
+    max-width: 100%; /* Changed from 1100px to 100% */
+    margin: 2rem auto;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 23, 68, 0.2);
+}
+
+.slideshow-wrapper {
+    position: relative;
+    width: 100%;
+    height: 600px; /* Increased height for chart visibility */
+    overflow: hidden;
+}
+
+.slide {
+    display: none;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.slide.active {
+    display: block;
+}
+
+.slide-image {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.95); /* White background for charts */
+    padding: 1rem;
+    margin-bottom: 2rem auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slide-image img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* Changed from cover to contain for charts */
+    object-position: center;
+    transition: transform 0.3s ease;
+    border-radius: 8px;
+}
+
+/* Hover overlay */
+.slide-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.4s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.slide:hover .slide-overlay {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.slide-info {
+    text-align: center;
+    max-width: 800px;
+    color: white;
+}
+
+.slide-info h3 {
+    font-family: "Racing Sans One", sans-serif;
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    color: #ff0000;
+}
+
+.race-details {
+    display: grid;
+    gap: 0.8rem;
+    text-align: left;
+    margin-bottom: 2rem;
+}
+
+.race-name {
+    font-family: "Squada One", sans-serif;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color: white;
+}
+
+.race-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1rem;
+    margin-bottom: 4rem;
+    text-align: center;
+    background: linear-gradient(to top, rgb(0, 0, 0), transparent);
+    transition: all 0.3s ease;
+}
+
+/* New description overlay styles */
+.photo-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.description-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.photo-container:hover .description-overlay {
+    opacity: 1;
+    visibility: visible;
+}
+
+.photo-container:hover .race-info {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.description-text {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    max-width: 80%;
+    margin-bottom: 1.5rem;
+}
+
+.description-title {
+    font-family: "Squada One", sans-serif;
+    font-size: 1.5rem;
+    color: #ff6b35;
+    margin-bottom: 0.5rem;
+}
+
+.description-race{
+    font-family: "Racing Sans One", sans-serif;
+    font-size: 2.5rem;
+    color: #ff0000;
+    margin-bottom: 0.5rem;
+    text-transform: capitalize;
+}
+
+/* Optional: Add a subtle indicator that there's more content */
+.description-indicator {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 0.3rem 0.7rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    z-index: 5;
+    transition: all 0.3s ease;
+}
+
+.photo-container:hover .description-indicator {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.detail-row:last-child {
+    border-bottom: none;
+}
+
+.label {
+    font-weight: bold;
+    color: #ff6b35;
+    min-width: 120px;
+}
+
+.detail-row span:last-child {
+    color: white;
+    text-align: right;
+    flex: 1;
+}
+
+/* Navigation arrows */
+.slide-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    border: none;
+    padding: 1rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 20;
+}
+
+.slide-nav:hover {
+    background: rgba(255, 23, 68, 0.9);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.prev {
+    left: 20px;
+}
+
+.next {
+    right: 20px;
+}
+
+/* Slide indicators */
+.slide-indicators {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 0.5rem;
+    z-index: 15;
+}
+
+.indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.indicator.active,
+.indicator:hover {
+    background: #ff1744;
+    transform: scale(1.3);
+}
+
+/* Slide counter */
+.slide-counter {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: bold;
+    z-index: 15;
+}
+
+/* Hover instruction */
+.slideshow-container::after {
+    content: 'Hover for race details';
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: rgba(255, 23, 68, 0.8);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    z-index: 15;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 0.8; }
+    50% { opacity: 1; }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .slideshow-wrapper {
+        height: 400px;
+    }
+    
+    .slide-image {
+        padding: 0.5rem;
+    }
+    
+    .slide-info h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    .slide-overlay {
+        padding: 1rem;
+    }
+    
+    .detail-row {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.3rem;
+    }
+    
+    .label {
+        min-width: auto;
+    }
+    
+    .slideshow-container::after {
+        display: none;
+    }
+}
+
+        /* Visualization Placeholders - MODIFIED FOR CHARTS */
+        .visualization {
+            margin: 2rem 0;
+        }
+
+        /* Chart containers - Half size with click-to-expand */
+        .zscore-placeholder {
+            border: 1px solid rgba(255, 23, 68, 0.2);
+            border-radius: 10px;
+            text-align: center;
+            margin: 1rem auto;
+            font-style: italic;
+            width: 90%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.95); /* White background for charts */
+    padding: 2rem;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+        }
+
+        .zscore-placeholder img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* Changed from cover to contain for charts */
+    object-position: center;
+    transition: transform 0.3s ease;
+    border-radius: 8px;
+}
+
+.zscore-placeholder::after {
+            content: 'Click to expand';
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background: rgba(255, 23, 68, 0.8);
+            color: white;
+            padding: 0.3rem 0.7rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-style: normal;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .zscore-placeholder:hover::after {
+            opacity: 1;
+        }
+
+        .zscore-placeholder:hover {
+            border-color: rgba(255, 23, 68, 0.5);
+            box-shadow: 0 10px 20px rgba(255, 23, 68, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .zscore-placeholder img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            object-position: center;
+            transition: transform 0.3s ease;
+            border-radius: 8px;
+        }
+
+        /* Expanded chart overlay */
+        .zscore-expanded {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 9999;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            overflow: hidden;
+        }
+
+        .zscore-expanded.active {
+            display: flex;
+        }
+
+        .zscore-expanded-content {
+            max-width: min(1200px, 90vw);
+            max-height: 90vh;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 2rem;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .zscore-expanded img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            border-radius: 8px;
+            cursor: grab;
+            transition: transform 0.1s ease;
+            transform-origin: center;
+            user-select: none;
+            -webkit-user-drag: none;
+        }
+
+        .zscore-expanded img:active {
+            cursor: grabbing;
+        }
+
+        /* Close button for expanded chart */
+        .zscore-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 23, 68, 0.8);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .zscore-close:hover {
+            background: rgba(255, 23, 68, 1);
+            transform: scale(1.1);
+        }
+
+/* Click to expand indicator */
+        .chart-placeholder::after {
+            content: 'Click to expand';
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background: rgba(255, 23, 68, 0.8);
+            color: white;
+            padding: 0.3rem 0.7rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-style: normal;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .chart-placeholder:hover::after {
+            opacity: 1;
+        }
+
+        .chart-placeholder {
+            border: 1px solid rgba(255, 23, 68, 0.2);
+            border-radius: 10px;
+            text-align: center;
+            margin: 1rem 0;
+            font-style: italic;
+            width: 75%; /* Wrap to image width */
+            height: fit-content; /* Wrap to image height */
+            position: relative;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1rem; /* Reduced padding */
+            margin: 1rem auto; /* Center the chart */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .chart-placeholder:hover {
+            border-color: rgba(255, 23, 68, 0.5);
+            box-shadow: 0 10px 20px rgba(255, 23, 68, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .chart-placeholder img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            object-position: center;
+            transition: transform 0.3s ease;
+            border-radius: 8px;
+        }
+
+        /* Expanded chart overlay */
+        .chart-expanded {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 9999;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            overflow: hidden;
+        }
+
+        .chart-expanded.active {
+            display: flex;
+        }
+
+        .chart-expanded-content {
+            max-width: min(1200px, 90vw);
+            max-height: 90vh;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 2rem;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .chart-expanded img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            border-radius: 8px;
+            cursor: grab;
+            transition: transform 0.1s ease;
+            transform-origin: center;
+            user-select: none;
+            -webkit-user-drag: none;
+        }
+
+        .chart-expanded img:active {
+            cursor: grabbing;
+        }
+
+        /* Zoom indicator */
+        .zoom-indicator {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            z-index: 10;
+            pointer-events: none;
+        }
+
+        /* Close button for expanded chart */
+        .chart-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 23, 68, 0.8);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .chart-close:hover {
+            background: rgba(255, 23, 68, 1);
+            transform: scale(1.1);
+        }
+
+        /* Click to expand indicator */
+        .chart-placeholder::after {
+            content: 'Click to expand';
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background: rgba(255, 23, 68, 0.8);
+            color: white;
+            padding: 0.3rem 0.7rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-style: normal;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .chart-placeholder:hover::after {
+            opacity: 1;
+        }
+
+        /* Mobile responsiveness for charts */
+        @media (max-width: 768px) {
+            .chart-placeholder {
+                width: 80%; /* Slightly larger on mobile */
+                height: 250px;
+            }
+            
+            .chart-expanded-content {
+                max-width: 95vw;
+                max-height: 95vh;
+                padding: 1rem;
+            }
+        }
+
+        /* Key Events */
+        .key-events {
+            margin: 2rem 0;
+        }
+
+        .event {
+            margin: 1.5rem 0;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            border-left: 4px solid #ff1744;
+        }
+
+        .event-date {
+            font-weight: bold;
+            color: #ff6b35;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Lists */
+        ul {
+            padding-left: 2rem;
+            margin: 1rem 0;
+        }
+
+        li {
+            margin: 0.5rem 0;
+        }
+
+        li strong {
+            color: #ff6b35;
+        }
+
+         /* Footer */
+
+        /* Footer container to allow flex layout */
+.ds-footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Left side content */
+.ds-footer-left {
+  text-align: left;
+}
+
+/* Right side content */
+.ds-footer-right {
+  text-align: right;
+}
+
+.ds-footer-left span { 
+  color: #c8c8c8; 
+  text-transform: uppercase; 
+  font-weight: 700; 
+  font-size: 16px; 
+  letter-spacing: 1px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.ds-footer-left h4 { 
+  color: #c8c8c8; 
+  font-size: 20px; 
+  font-weight: 700; 
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+.ds-footer-left p { 
+  letter-spacing: 1.13px; 
+  color: #c8c8c8; 
+  font-size: 18px; 
+  margin-bottom: 0;
+}
+
+/* Social links container */
+.social-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+/* Footer link styling */
+.footer-link {
+  color: #c8c8c8;
+  font-size: 18px;
+  font-weight: 600;
+  text-decoration: none;
+  letter-spacing: 1px;
+  transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+  color: #ff1744;
+}
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .container {
+                padding: 0 1rem;
+            }
+            
+            .stat-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 1rem;
+            }
+            
+            .race-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .driver-row {
+                flex-direction: column;
+                text-align: center;
+                gap: 0.5rem;
+            }
+        }
+
+        /* Animation */
+        .stat-card, .race-card, .driver-row {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .code-btn {
+    background-color: #ad102f;
+    color: white;
+    border: none;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .code-btn:hover {
+    background-color: #4c0614;
+  }
+  
+  .code-section {
+    display: none;
+    background-color: #4f4f4fe6;
+    border-radius: 6px;
+    padding: 20px;
+    margin: 10px 0 30px 0;
+    overflow-x: auto;
+  }
+  
+  .code-section pre {
+    margin: 0;
+    white-space: pre-wrap;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  
+  .code-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e2e8f0;
+    margin-bottom: 15px;
+  }
+  
+  .copy-btn {
+    background-color: #4a5568;
+    color: white;
+    border: none;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    cursor: pointer;
+  }
+  
+  .copy-btn:hover {
+    background-color: #2d3748;
+  }
+
+  /* Table of Contents Styles */
+.toc-container {
+    position: relative;
+    z-index: 100;
+    padding: 40px 0;
+    max-width: 1200px;
+}
+
+.toc-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.toc-title {
+    font-family: 'Racing Sans One', cursive;
+    font-size: 2.5rem;
+    color: #fff;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background: linear-gradient(45deg, #fff, #ff1744);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.toc-subtitle {
+    font-family: 'Sansation', sans-serif;
+    font-size: 1.2rem;
+    color: #ff6b35;
+    font-weight: 300;
+}
+
+/* Document-style TOC */
+.document-toc {
+    max-width: 1200px;
+    margin: 2rem auto;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 23, 68, 0.2);
+}
+
+/* Document-style TOC */
+.document-toc-title {
+    font-family: 'Racing Sans One', cursive;
+    font-size: 3rem;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background: linear-gradient(45deg, #fff, #ff1744);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-align: center;
+}
+
+.toc-entry {
+    display: flex;
+    align-items: center;
+    padding: 12px 0;
+    font-family: 'Sansation', sans-serif;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.toc-entry:last-child {
+    border-bottom: none;
+}
+
+.toc-entry:hover {
+    background: rgba(255, 23, 68, 0.1);
+    padding-left: 10px;
+    transform: translateX(5px);
+}
+
+.main-entry {
+    font-weight: 600;
+    padding: 16px 0;
+    border-bottom: 2px solid rgba(255, 23, 68, 0.3);
+}
+
+.sub-entry {
+    padding-left: 30px;
+    font-size: 0.95rem;
+    color: #ccc;
+}
+
+.sub-entry:hover {
+    padding-left: 40px;
+}
+
+.entry-number {
+    font-weight: 700;
+    color: #ff1744;
+    min-width: 40px;
+    font-size: 1rem;
+}
+
+.sub-entry .entry-number {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #ff6b35;
+}
+
+.entry-title {
+    flex-grow: 1;
+    margin-left: 15px;
+    color: #fff;
+    line-height: 1.4;
+}
+
+.entry-dots {
+    flex-grow: 1;
+    height: 1px;
+    background-image: repeating-linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0.3),
+        rgba(255, 255, 255, 0.3) 4px,
+        transparent 4px,
+        transparent 8px
+    );
+    margin: 0 15px;
+    min-width: 50px;
+}
+
+.entry-section {
+    font-weight: 600;
+    color: #ccc;
+    font-size: 0.9rem;
+    min-width: 80px;
+    text-align: right;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 4px 8px;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 23, 68, 0.2);
+    transition: all 0.3s ease;
+}
+
+.toc-entry:hover .entry-section {
+    background: #ff1744;
+    color: white;
+    border-color: #ff1744;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(255, 23, 68, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .toc-container {
+        padding: 30px 0;
+    }
+    
+    .toc-title {
+        font-size: 2rem;
+    }
+    
+    .toc-subtitle {
+        font-size: 1rem;
+    }
+    
+    .document-toc {
+        margin: 0 20px;
+        padding: 30px 20px;
+    }
+    
+    .toc-entry {
+        padding: 10px 0;
+        font-size: 0.9rem;
+    }
+    
+    .sub-entry {
+        padding-left: 20px;
+        font-size: 0.85rem;
+    }
+    
+    .sub-entry:hover {
+        padding-left: 30px;
+    }
+    
+    .entry-number {
+        min-width: 35px;
+        font-size: 0.9rem;
+    }
+    
+    .entry-title {
+        margin-left: 10px;
+    }
+    
+    .entry-dots {
+        margin: 0 10px;
+        min-width: 30px;
+    }
+    
+    .entry-section {
+        font-size: 0.8rem;
+        min-width: 60px;
+        padding: 3px 6px;
+    }
+}
+
+@media (max-width: 480px) {
+    .document-toc {
+        margin: 0 15px;
+        padding: 25px 15px;
+    }
+    
+    .entry-dots {
+        display: none;
+    }
+    
+    .entry-section {
+        min-width: 50px;
+        font-size: 0.75rem;
+    }
+}
+
+/* Floating TOC Sidebar */
+.floating-toc {
+    position: fixed;
+    top: 50%;
+    right: -250px;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 23, 68, 0.3);
+    border-radius: 15px 0 0 15px;
+    padding: 20px;
+    width: 280px;
+    max-height: 70vh;
+    overflow-y: auto;
+    z-index: 1000;
+    transition: all 0.4s ease;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+}
+
+.floating-toc:hover,
+.floating-toc.show {
+    right: 0;
+}
+
+/* Hover trigger area */
+.toc-hover-trigger {
+    position: fixed;
+    top: 20%;
+    right: 0;
+    width: 30px;
+    height: 60%;
+    z-index: 999;
+    background: linear-gradient(to left, rgba(255, 23, 68, 0.3), transparent);
+    border-radius: 8px 0 0 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.toc-hover-trigger:hover {
+    width: 40px;
+    background: linear-gradient(to left, rgba(255, 23, 68, 0.5), transparent);
+}
+
+/* Visual indicator on hover trigger */
+.toc-hover-trigger::after {
+    content: '📋';
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 1.2rem;
+    opacity: 0.7;
+    transition: all 0.3s ease;
+}
+
+.toc-hover-trigger:hover::after {
+    opacity: 1;
+    left: 8px;
+}
+
+.floating-toc-header {
+    color: #fff;
+    font-family: 'Squada One';
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #ff1744;
+    background: #ff7300;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.floating-toc-item {
+    margin-bottom: 6px;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    border-left: 3px solid transparent;
+    cursor: pointer;
+}
+
+.floating-toc-item:hover {
+    background: rgba(255, 23, 68, 0.1);
+    border-left-color: #ff1744;
+    transform: translateX(5px);
+}
+
+.floating-toc-item.active {
+    background: rgba(255, 23, 68, 0.2);
+    border-left-color: #ff1744;
+}
+
+.floating-toc-item.sub-item {
+    margin-left: 15px;
+    padding: 6px 10px;
+    font-size: 0.85rem;
+}
+
+.floating-toc-item a {
+    color: #fff;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    font-family: 'Sansation', sans-serif;
+    font-size: 0.9rem;
+}
+
+.floating-toc-item.sub-item a {
+    font-size: 0.8rem;
+    color: #ccc;
+}
+
+.floating-toc-number {
+    background: #ff1744;
+    color: white;
+    border-radius: 50%;
+    width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+}
+
+.floating-toc-item:hover .floating-toc-number {
+    background: #ff6b35;
+    transform: scale(1.1);
+}
+
+.floating-toc-item.sub-item .floating-toc-number {
+    width: 18px;
+    height: 18px;
+    font-size: 0.65rem;
+    background: #ff6b35;
+}
+
+.floating-toc-text {
+    flex-grow: 1;
+    line-height: 1.3;
+}
+
+/* Toggle button for mobile */
+.toc-toggle {
+    position: fixed;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    background: #ff0040;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    z-index: 1001;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(255, 0, 64, 0.3);
+    transition: all 0.3s ease;
+}
+
+.toc-toggle:hover {
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 6px 20px rgba(255, 0, 64, 0.4);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    .floating-toc {
+        right: 10px;
+        width: 250px;
+    }
+}
+
+@media (max-width: 768px) {
+    .floating-toc {
+        right: -280px;
+        width: 280px;
+        height: 100vh;
+        top: 0;
+        transform: none;
+        border-radius: 0;
+        max-height: none;
+        padding: 30px 20px;
+    }
+    
+    .floating-toc:hover,
+    .floating-toc.show {
+        right: 0;
+    }
+    
+    .toc-hover-trigger {
+        width: 25px;
+        top: 30%;
+        height: 40%;
+    }
+    
+    .toc-toggle {
+        display: flex;
+    }
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Section targeting for active states */
+.section {
+    scroll-margin-top: 100px;
+}
+
+/* Custom scrollbar for floating TOC */
+.floating-toc::-webkit-scrollbar {
+    width: 6px;
+}
+
+.floating-toc::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 3px;
+}
+
+.floating-toc::-webkit-scrollbar-thumb {
+    background: #ff0040;
+    border-radius: 3px;
+}
+
+.floating-toc::-webkit-scrollbar-thumb:hover {
+    background: #cc0033;
+}
+
