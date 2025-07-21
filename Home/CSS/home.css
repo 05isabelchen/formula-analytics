@@ -29,7 +29,7 @@ body {
     min-height: 100vh;
     
     /* Background image setup */
-    background-image: url('./CSS/HomeBackground.PNG');
+    background-image: url('Home/CSS/HomeBackground.PNG');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
