@@ -27,7 +27,7 @@
     color: white;
     overflow-x: hidden;
     min-height: 100vh;
-    background-image: url('Images/HomeBackground.png');
+    background-image: url('Images/HomeBackground.PNG');
     background-size: contain;  /* Change from 'cover' to 'contain' */
     background-color: rgb(41, 41, 41, 0.85);
     background-blend-mode: multiply;
