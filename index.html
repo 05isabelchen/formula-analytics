@@ -14,19 +14,49 @@
 <body>
     <!-- Navigation -->
     <nav>
-    <div class="nav-container">
-        <div class="logo">FORMULA ANALYTICS</div>
-        <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
+        <div class="nav-container">
+            <div class="logo">FORMULA ANALYTICS</div>
+            
+            <!-- Desktop Navigation -->
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li class="dropdown">
+                    <a href="#races">Championship</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="WDC2015.html">2015</a></li>
+                        <li><a href="WDC2016.html">2016</a></li>
+                        <li><a href="Projects/mobile-apps.html">2018</a></li>
+                        <li><a href="Projects/mobile-apps.html">2021</a></li>
+                        <li><a href="Projects/mobile-apps.html">2023</a></li>
+                        <li><a href="Projects/mobile-apps.html">2024</a></li>
+                    </ul>
+                </li>
+                <li><a href="#drivers">Drivers</a></li>
+                <li><a href="#teams">Teams</a></li>
+                <li><a href="#news">Circuits</a></li>
+                <li><a href="#standings">2025 Championship</a></li>
+            </ul>
+
+            <!-- Mobile Menu Toggle -->
+            <div class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Links -->
+        <ul class="mobile-nav-links" id="mobileNavLinks">
+            <li><a href="#home">Home</a></li>
             <li class="dropdown">
                 <a href="#races">Championship</a>
                 <ul class="dropdown-menu">
                     <li><a href="WDC2015.html">2015</a></li>
-                    <li><a href="#2016">2016</a></li>
-                    <li><a href="#2018l">2018</a></li>
-                    <li><a href="#2021">2021</a></li>
-                    <li><a href="#2023">2023</a></li>
-                    <li><a href="#2024">2024</a></li>
+                    <li><a href="WDC2016.html">2016</a></li>
+                    <li><a href="Projects/mobile-apps.html">2018</a></li>
+                    <li><a href="Projects/mobile-apps.html">2021</a></li>
+                    <li><a href="Projects/mobile-apps.html">2023</a></li>
+                    <li><a href="Projects/mobile-apps.html">2024</a></li>
                 </ul>
             </li>
             <li><a href="#drivers">Drivers</a></li>
@@ -34,8 +64,13 @@
             <li><a href="#news">Circuits</a></li>
             <li><a href="#standings">2025 Championship</a></li>
         </ul>
+    </nav>
+
+    <div class="content">
+        <h1>Mobile Navigation Test</h1>
+        <p>Resize your browser window or view on mobile to test the navigation menu.</p>
+        <p>The hamburger menu should appear on screens smaller than 768px wide.</p>
     </div>
-</nav>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
