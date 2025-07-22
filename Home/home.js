@@ -145,3 +145,34 @@ document.addEventListener('DOMContentLoaded', function() {
         card.setAttribute('aria-label', `Explore ${year} Championship`);
     });
 });
+
+function toggleMobileMenu() {
+            const toggle = document.querySelector('.mobile-menu-toggle');
+            const mobileNav = document.getElementById('mobileNavLinks');
+            
+            toggle.classList.toggle('active');
+            mobileNav.classList.toggle('active');
+        }
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.mobile-nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                const toggle = document.querySelector('.mobile-menu-toggle');
+                const mobileNav = document.getElementById('mobileNavLinks');
+                
+                toggle.classList.remove('active');
+                mobileNav.classList.remove('active');
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            const toggle = document.querySelector('.mobile-menu-toggle');
+            const mobileNav = document.getElementById('mobileNavLinks');
+            const navbar = document.querySelector('.navbar');
+            
+            if (!navbar.contains(e.target) && mobileNav.classList.contains('active')) {
+                toggle.classList.remove('active');
+                mobileNav.classList.remove('active');
+            }
+        });
