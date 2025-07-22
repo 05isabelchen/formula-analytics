@@ -125,37 +125,70 @@ nav {
     width: 100%;
 }
 
-/* Mobile Navigation Menu */
-@media (max-width: 768px) {
-  .mobile-menu-toggle {
-    display: flex;
+<!-- ADD THIS TO YOUR EXISTING HTML - Insert the mobile menu toggle and mobile nav after your existing nav-links -->
+
+<!-- Your existing nav structure stays the same, just add these two elements: -->
+
+<!-- Add this mobile menu toggle button inside your nav-container, after the nav-links -->
+<div class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+
+<!-- Add this mobile navigation outside of nav-container but inside the nav element -->
+<ul class="mobile-nav-links" id="mobileNavLinks">
+    <li><a href="#home">Home</a></li>
+    <li class="dropdown">
+        <a href="#races" class="dropdown-toggle">Championship</a>
+        <ul class="dropdown-menu">
+            <li><a href="WDC2015.html">2015</a></li>
+            <li><a href="WDC2016.html">2016</a></li>
+            <li><a href="Projects/mobile-apps.html">2018</a></li>
+            <li><a href="Projects/mobile-apps.html">2021</a></li>
+            <li><a href="Projects/mobile-apps.html">2023</a></li>
+            <li><a href="Projects/mobile-apps.html">2024</a></li>
+        </ul>
+    </li>
+    <li><a href="#drivers">Drivers</a></li>
+    <li><a href="#teams">Teams</a></li>
+    <li><a href="#news">Circuits</a></li>
+    <li><a href="#standings">2025 Championship</a></li>
+</ul>
+
+<!-- ADD THIS CSS TO YOUR STYLESHEET -->
+<style>
+/* Mobile Menu Toggle Button - Hidden by default */
+.mobile-menu-toggle {
+    display: none;
     flex-direction: column;
     cursor: pointer;
     padding: 5px;
-  }
+}
 
-  .mobile-menu-toggle span {
+.mobile-menu-toggle span {
     width: 25px;
     height: 3px;
     background: white;
     margin: 3px 0;
     transition: 0.3s;
     border-radius: 3px;
-  }
+}
 
-  .mobile-menu-toggle.active span:nth-child(1) {
+.mobile-menu-toggle.active span:nth-child(1) {
     transform: rotate(-45deg) translate(-5px, 6px);
-  }
+}
 
-  .mobile-menu-toggle.active span:nth-child(2) {
+.mobile-menu-toggle.active span:nth-child(2) {
     opacity: 0;
-  }
+}
 
-  .mobile-menu-toggle.active span:nth-child(3) {
+.mobile-menu-toggle.active span:nth-child(3) {
     transform: rotate(45deg) translate(-5px, -6px);
-  }
+}
 
-  .mobile-nav-links {
+/* Mobile Navigation Links - Hidden by default */
+.mobile-nav-links {
     display: none;
     position: absolute;
     top: 100%;
@@ -165,104 +198,84 @@ nav {
     backdrop-filter: blur(15px);
     flex-direction: column;
     padding: 1rem 0;
-  }
+    list-style: none;
+    margin: 0;
+    z-index: 999;
+}
 
-  .mobile-nav-links.active {
+.mobile-nav-links.active {
     display: flex;
-  }
+}
 
-  .mobile-nav-links li {
+.mobile-nav-links li {
     margin: 0.5rem 0;
     text-align: center;
-  }
+}
 
-  .mobile-nav-links a {
+.mobile-nav-links > li > a {
     display: block;
     padding: 1rem;
     font-size: 1.2rem;
-  }
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
 }
 
-/* Hide mobile menu on desktop */
-@media (min-width: 769px) {
-  .mobile-menu-toggle {
+.mobile-nav-links > li > a:hover {
+    color: #ff1744;
+}
+
+/* Mobile dropdown styles */
+.mobile-nav-links .dropdown-menu {
     display: none;
-  }
-  
-  .mobile-nav-links {
-    display: none;
-  }
-}
-
-/* Dropdown Menu Styles */
-.dropdown {
-  position: relative;
-}
-
-.dropdown-menu {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background: rgba(0, 0, 0, 0.95);
-  backdrop-filter: blur(15px);
-  min-width: 200px;
-  border-radius: 10px;
-  padding: 0.5rem 0;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-  border: 1px solid rgba(255, 23, 68, 0.2);
-  z-index: 1001;
-  opacity: 0;
-  transform: translateY(-10px);
-  transition: all 0.3s ease;
-}
-
-.dropdown:hover .dropdown-menu {
-  display: block;
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.dropdown-menu li {
-  display: block;
-  margin: 0;
-}
-
-.dropdown-menu a {
-  display: block;
-  padding: 0.8rem 1.5rem;
-  color: white;
-  text-decoration: none;
-  white-space: nowrap;
-  transition: all 0.3s ease;
-  border-radius: 0;
-}
-
-.dropdown-menu a:hover {
-  color: #ff1744;
-  transform: translateX(5px);
-}
-
-.dropdown-menu a::after {
-  display: none; /* Remove underline effect for dropdown items */
-}
-
-/* Mobile-specific dropdown adjustments */
-@media (max-width: 768px) {
-  .dropdown-menu {
     position: static;
-    min-width: auto;
-    border-radius: 0;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: none;
     box-shadow: none;
     border: none;
-    background: rgba(0, 0, 0, 0.8);
+    border-radius: 0;
+    padding: 0;
+    margin: 0;
+    min-width: auto;
     opacity: 1;
     transform: none;
-  }
-  
-  .dropdown:hover .dropdown-menu {
+    transition: none;
+}
+
+.mobile-nav-links .dropdown.active .dropdown-menu {
     display: block;
-  }
+}
+
+.mobile-nav-links .dropdown-menu li {
+    margin: 0;
+}
+
+.mobile-nav-links .dropdown-menu a {
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+    color: #ccc;
+}
+
+.mobile-nav-links .dropdown-menu a:hover {
+    color: #ff1744;
+}
+
+/* MOBILE MEDIA QUERIES */
+@media (max-width: 768px) {
+    /* Hide desktop navigation on mobile */
+    .nav-links {
+        display: none !important;
+    }
+
+    /* Show mobile menu toggle on mobile */
+    .mobile-menu-toggle {
+        display: flex !important;
+    }
+}
+
+/* Ensure nav has relative positioning for mobile menu */
+nav {
+    position: relative;
 }
 /* Dropdown Menu Styles */
 .dropdown {
