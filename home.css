@@ -511,8 +511,7 @@ nav {
 }
 
 .info-card {
-    background: rgba(96, 96, 96, 0.326);
-    backdrop-filter: blur(15px);
+    background: rgba(0, 0, 0, 0.8);
     border: 1px solid rgba(255, 23, 69, 0.816);
     border-radius: 20px;
     padding: 2rem;
