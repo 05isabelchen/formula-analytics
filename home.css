@@ -742,323 +742,361 @@ nav {
 }
 
 /* Driver Cards Section */
-.drivers-section {
-    padding: 2rem;
-    background: rgba(0, 0, 0, 0.3);
-}
+        .drivers-section {
+            padding: 2rem 2rem;
+            background: rgba(0, 0, 0, 0.3);
+        }
 
-.drivers-section-title {
-    text-align: center;
-    font-family: 'Racing Sans One', sans-serif;
-    font-size: clamp(2rem, 6vw, 2.5rem);
-    font-weight: bold;
-    margin-bottom: 3rem;
-    background: linear-gradient(45deg, #fff, #ff1744);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
+        .drivers-section-title {
+            text-align: center;
+            font-family: 'Racing Sans One', sans-serif;
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 3rem;
+            background: linear-gradient(45deg, #fff, #ff1744);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
 
-.drivers-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    position: relative;
-}
+        .drivers-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
 
-.drivers-scroll {
+        .drivers-scroll {
     display: flex;
     overflow-x: auto;
     gap: 1.5rem;
     padding: 1rem 0 2rem 0;
     scroll-behavior: smooth;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
+    
+    /* Hide scrollbar for all browsers */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
 }
 
+/* Hide scrollbar for WebKit browsers (Chrome, Safari, Edge) */
 .drivers-scroll::-webkit-scrollbar {
     display: none;
 }
 
-.driver-card {
-    min-width: 250px;
-    max-width: 280px;
-    height: 400px;
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(15px);
-    border: 1px solid rgba(255, 23, 68, 0.2);
-    border-radius: 15px;
-    overflow: hidden;
-    transition: all 0.3s ease;
-    position: relative;
-    flex-shrink: 0;
-}
+        .driver-card {
+            min-width: 280px;
+            max-width: 300px;
+            height: 400px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 23, 68, 0.2);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            position: relative;
+            flex-shrink: 0;
+        }
 
-.driver-card:hover {
-    transform: translateY(-10px);
-    border-color: rgba(255, 23, 68, 0.5);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-}
+        .driver-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(255, 23, 68, 0.5);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
 
-.driver-header {
-    height: 100%;
-    position: relative;
-    overflow: hidden;
-}
+        .driver-header {
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
 
-.team-color-bar {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    z-index: 2;
-}
+        .team-color-bar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            z-index: 2;
+        }
 
-.driver-image {
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(45deg, #333, #666);
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: white;
-    position: relative;
-}
-
-.driver-image img {
+        .driver-image {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #333, #666);
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+            position: relative;
+        }
+        .driver-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: center;
 }
 
-.driver-info {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 1rem;
-    text-align: center;
-    background: linear-gradient(to top, rgb(0, 0, 0), transparent);
-    transition: all 0.3s ease;
-}
+        .driver-info {
+            padding: 1.5rem;
+            text-align: center;
+        }
 
-.driver-card:hover .driver-info {
-    opacity: 0;
-}
+        .driver-number {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            opacity: 0.6;
+        }
 
-.driver-number {
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    font-size: 1.2rem;
-    font-weight: bold;
-    opacity: 0.6;
-}
+        .driver-name {
+            font-family: "Squada One", sans-serif;
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            color: white;
+        }
 
-.driver-name {
-    font-family: "Squada One", sans-serif;
-    font-size: clamp(1.5rem, 5vw, 2rem);
-    margin-bottom: 0.5rem;
-    color: white;
-}
+        .driver-team {
+            font-family: "Squada One", sans-serif;
+            font-size: 1rem;
+            color: #ff6b35;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
 
-.driver-team {
-    font-family: "Squada One", sans-serif;
-    font-size: clamp(0.9rem, 3vw, 1rem);
-    color: #ff6b35;
-    margin-bottom: 1rem;
-    font-weight: 500;
-}
+        .driver-stats {
+            display: flex;
+            justify-content: space-between;
+            margin: 1rem 0;
+        }
 
-.driver-stats {
-    display: flex;
-    justify-content: space-between;
-    margin: 1rem 0;
-}
+        .stat-item {
+            text-align: center;
+            flex: 1;
+        }
 
-.stat-item {
-    text-align: center;
-    flex: 1;
-}
+        .stat-value {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #ff1744;
+        }
 
-.stat-value {
-    font-size: clamp(1rem, 3vw, 1.1rem);
-    font-weight: bold;
-    color: #ff1744;
-}
+        .stat-label {
+            font-size: 0.8rem;
+            opacity: 0.7;
+            margin-top: 0.2rem;
+        }
 
-.stat-label {
-    font-size: clamp(0.7rem, 2vw, 0.8rem);
-    opacity: 0.7;
-    margin-top: 0.2rem;
-}
+        .driver-country {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
 
-.driver-country {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    margin-top: 1rem;
-    font-size: clamp(0.8rem, 2vw, 0.9rem);
-    opacity: 0.8;
-}
+        /* Hover overlay for detailed info */
+        .driver-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.277);
+            backdrop-filter: blur(10px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+            pointer-events: none;
+            padding: 1.5rem;
+            text-align: center;
+        }
 
-/* Hover overlay for detailed info */
-.driver-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.277);
-    backdrop-filter: blur(10px);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.3s ease;
-    pointer-events: none;
-    padding: 1.5rem;
-    text-align: center;
-}
+        .driver-card:hover .driver-overlay {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: all;
+        }
 
-.driver-card:hover .driver-overlay {
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: all;
-}
+        .overlay-name {
+            font-family: "Squada One", sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: white;
+        }
 
-.overlay-name {
-    font-family: "Squada One", sans-serif;
-    font-size: clamp(1.8rem, 6vw, 2.5rem);
-    margin-bottom: 0.5rem;
-    color: white;
-}
+        .overlay-team {
+            font-family: "Squada One", sans-serif;
+            font-size: 2rem;
+            color: #ffffff;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
 
-.overlay-team {
-    font-family: "Squada One", sans-serif;
-    font-size: clamp(1.5rem, 5vw, 2rem);
-    color: #ffffff;
-    margin-bottom: 1.5rem;
-    font-weight: 500;
-}
+        .overlay-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            width: 100%;
+            margin-bottom: 1rem;
+        }
 
-.overlay-stats {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-    width: 100%;
-    margin-bottom: 1rem;
-}
+        .overlay-stat {
+            text-align: center;
+        }
 
-.overlay-stat {
-    text-align: center;
-}
+        .overlay-stat-value {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #ff1744;
+        }
 
-.overlay-stat-value {
-    font-size: clamp(1.1rem, 4vw, 1.2rem);
-    font-weight: bold;
-    color: #ff1744;
-}
+        .overlay-stat-label {
+            font-size: 0.8rem;
+            opacity: 0.7;
+            margin-top: 0.2rem;
+        }
 
-.overlay-stat-label {
-    font-size: clamp(0.7rem, 2vw, 0.8rem);
-    opacity: 0.7;
-    margin-top: 0.2rem;
-}
+        .overlay-country {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-top: 1rem;
+        }
 
-.overlay-country {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    font-size: clamp(0.8rem, 2vw, 0.9rem);
-    opacity: 0.8;
-    margin-top: 1rem;
-}
+        /* Default state - simplified view */
+        .driver-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1rem;
+            text-align: center;
+            background: linear-gradient(to top, rgb(0, 0, 0), transparent);
+            transition: all 0.3s ease;
+        }
 
-/* Team-specific colors */
-.red-bull { background: linear-gradient(135deg, #0600ef, #a20000); }
-.mercedes { background: linear-gradient(135deg, #00d2be, #00b9aa); }
-.ferrari { background: linear-gradient(135deg, #dc143c, #ff1744); }
-.mclaren { background: linear-gradient(135deg, #ff8700, #aa6300); }
-.aston-martin { background: linear-gradient(135deg, #007c6d, #00312c); }
-.alpine { background: linear-gradient(135deg, #0077ff, #005cbf); }
-.williams { background: linear-gradient(135deg, #005aff, #00c1ff); }
-.alphatauri { background: linear-gradient(135deg, #2b4562, #4c7c9b); }
-.kick-sauber { background: linear-gradient(135deg, #00ff11, #0e8901); }
-.haas { background: linear-gradient(135deg, #b3b2b2b9, #a90000); }
+        .driver-card:hover .driver-info {
+            opacity: 0;
+        }
 
-/* Scroll indicators */
-.scroll-indicator {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 40px;
-    height: 40px;
-    background: rgba(255, 23, 68, 0.8);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    z-index: 10;
-}
+        /* Team-specific colors */
+        .red-bull { background: linear-gradient(135deg, #0600ef, #a20000); }
+        .mercedes { background: linear-gradient(135deg, #00d2be, #00b9aa); }
+        .ferrari { background: linear-gradient(135deg, #dc143c, #ff1744); }
+        .mclaren { background: linear-gradient(135deg, #ff8700, #aa6300); }
+        .aston-martin { background: linear-gradient(135deg, #007c6d, #00312c); }
+        .alpine { background: linear-gradient(135deg, #0077ff, #005cbf); }
+        .williams { background: linear-gradient(135deg, #005aff, #00c1ff); }
+        .alphatauri { background: linear-gradient(135deg, #2b4562, #4c7c9b); }
+        .kick-sauber { background: linear-gradient(135deg, #00ff11, #0e8901); }
+        .haas { background: linear-gradient(135deg, #b3b2b2b9, #a90000); }
 
-.scroll-indicator:hover {
-    background: rgba(255, 23, 68, 1);
-    transform: translateY(-50%) scale(1.1);
-}
+        /* Scroll indicators */
+        .scroll-indicator {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 23, 68, 0.8);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
 
-.scroll-left {
-    left: -20px;
-}
+        .scroll-indicator:hover {
+            background: rgba(255, 23, 68, 1);
+            transform: translateY(-50%) scale(1.1);
+        }
 
-.scroll-right {
-    right: -20px;
-}
+        .scroll-left {
+            left: -20px;
+        }
 
-.scroll-indicator::before {
-    content: '';
-    width: 8px;
-    height: 8px;
-    border: 2px solid white;
-    border-bottom: none;
-    border-right: none;
-    transform: rotate(-45deg);
-}
+        .scroll-right {
+            right: -20px;
+        }
 
-.scroll-right::before {
-    transform: rotate(135deg);
-}
+        .scroll-indicator::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            border: 2px solid white;
+            border-bottom: none;
+            border-right: none;
+            transform: rotate(-45deg);
+        }
 
-/* Animation for cards appearing */
-.driver-card {
-    animation: slideInFromRight 0.6s ease-out forwards;
-    opacity: 0;
-    transform: translateX(50px);
-}
+        .scroll-right::before {
+            transform: rotate(135deg);
+        }
 
-.driver-card:nth-child(1) { animation-delay: 0.1s; }
-.driver-card:nth-child(2) { animation-delay: 0.2s; }
-.driver-card:nth-child(3) { animation-delay: 0.3s; }
-.driver-card:nth-child(4) { animation-delay: 0.4s; }
-.driver-card:nth-child(5) { animation-delay: 0.5s; }
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .drivers-section {
+                padding: 2rem 1rem;
+            }
+            
+            .drivers-section-title {
+                font-size: 2rem;
+            }
+            
+            .driver-card {
+                min-width: 250px;
+            }
+            
+            .scroll-indicator {
+                display: none;
+            }
+        }
 
-@keyframes slideInFromRight {
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
+        @media (max-width: 480px) {
+            .driver-card {
+                min-width: 220px;
+            }
+            
+            .drivers-scroll {
+                gap: 1rem;
+            }
+        }
+
+        /* Animation for cards appearing */
+        .driver-card {
+            animation: slideInFromRight 0.6s ease-out forwards;
+            opacity: 0;
+            transform: translateX(50px);
+        }
+
+        .driver-card:nth-child(1) { animation-delay: 0.1s; }
+        .driver-card:nth-child(2) { animation-delay: 0.2s; }
+        .driver-card:nth-child(3) { animation-delay: 0.3s; }
+        .driver-card:nth-child(4) { animation-delay: 0.4s; }
+        .driver-card:nth-child(5) { animation-delay: 0.5s; }
+
+        @keyframes slideInFromRight {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+/* End of Driver Section*/
 
 /* Team Cards Section */
         .teams-section {
