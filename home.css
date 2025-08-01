@@ -351,6 +351,37 @@ nav {
     z-index: 1;
 }
 
+.hero2 {
+            height: 20vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            margin-top: 70px;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .hero2-content {
+            text-align: center;
+            z-index: 2;
+            position: relative;
+            max-width: 1000px;
+            padding: 0 1rem;
+        }
+
+        .hero2-title {
+            font-family: "Racing Sans One", sans-serif;
+            font-size: 5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #fff, #ff1744, #ff6b35);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: titleGlow 3s ease-in-out infinite alternate;
+        }
+
 @keyframes carsMove {
     0% { transform: translateX(-50px) translateY(10px); }
     50% { transform: translateX(50px) translateY(-10px); }
